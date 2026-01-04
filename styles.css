@@ -1076,6 +1076,14 @@ ul {
         width: 300px;
         height: 380px;
     }
+
+    .hero .description {
+        margin: 0 auto 30px auto;
+    }
+
+    .scroll-down {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1121,7 +1129,7 @@ ul {
     .stats {
         flex-wrap: wrap;
         gap: 30px;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .contact-wrapper {
