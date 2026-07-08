@@ -1,51 +1,67 @@
-# Portfolio Website - Akash Raj
+# Portfolio Website — Akash Raj
 
-A modern, responsive portfolio website showcasing my professional experience, skills, certifications, and projects as a DevOps Engineer and Backend Developer.
+A modern, responsive portfolio website showcasing professional experience, skills, certifications, and projects as a **DevOps / Site Reliability Engineer**.
+
+🌐 **Live:** [akash-raj-official.github.io/Portfolio](https://akash-raj-official.github.io/Portfolio) *(or your deployed URL)*
+
+---
 
 ## 🚀 Features
 
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Modern UI**: Clean, professional design with smooth animations and hover effects
-- **Interactive Elements**: Custom cursor, smooth scrolling, and dynamic card interactions
-- **Sections**:
-  - Hero section with introduction
-  - About me with education
-  - Professional experience timeline
-  - **Certifications showcase** (2x2 grid layout)
-  - Projects gallery
-  - Technical skills
-  - Contact form
+- **Responsive Design** — Fully responsive layout across desktop, tablet, and mobile
+- **Dark Theme** — Sleek dark UI with gold accents, glassmorphism, and micro-animations
+- **Custom Cursor** — Unique cursor design matching the premium theme
+- **Tech Logos** — Devicons SVG logos for tools and technologies throughout
+- **Smooth Interactions** — Hover effects, scroll animations, and dynamic card transitions
 
-## 🎨 Design Highlights
+### Sections
 
-- **Color Scheme**: Dark theme with gold accents (#d4af37)
-- **Typography**: Inter for body text, Syne for headings
-- **Animations**: Smooth transitions and hover effects throughout
-- **Custom Cursor**: Unique cursor design matching the theme
+| Section | Description |
+|---|---|
+| Hero | Introduction, role, key stats (uptime SLA, microservices, certifications) |
+| About | Bio, social links, and education history |
+| Experience | Bullet-pointed achievements with quantified metrics + inline tech icon strip |
+| Projects | Project cards with logo-tagged tech stacks |
+| Skills | Icon + label grid organised by category |
+| Certifications | AWS, Oracle OCI, Google Cloud, NPTEL |
+| Contact | Email, phone, location, and contact form |
 
-## 📜 Certifications
+---
 
-The portfolio features a dedicated certifications section showcasing:
-- Oracle Cloud Infrastructure 2025 Certified Architect Associate
-- Salesforce Certified AI Associate
-- Salesforce Certified AI Specialist
-- Programming in JAVA (NPTEL)
+## 🎨 Design System
 
-Each certification card includes:
-- Icon logo with hover effects
-- Certification title (gold color)
-- Issuer information
-- Issue date
-- Credential ID
-- Verification link
-- Related skills (where applicable)
+| Token | Value |
+|---|---|
+| Background | `#0a0a0a` |
+| Card Background | `#141414` |
+| Accent (Gold) | `#d4af37` |
+| Body Font | Inter |
+| Display Font | Syne |
 
-## 🛠️ Technologies Used
+---
 
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Fonts**: Google Fonts (Inter, Outfit, Syne)
-- **Icons**: Font Awesome 6.4.0
-- **Design**: Custom CSS with CSS Grid and Flexbox
+## 🛠️ Tech Stack (Portfolio)
+
+- **HTML5 / CSS3 / Vanilla JS**
+- **Google Fonts** — Inter, Outfit, Syne
+- **Font Awesome 6.4** — Icons
+- **Devicons v2.15** — Technology SVG logos
+
+---
+
+## 💼 About Me (Highlighted in Portfolio)
+
+**Akash Raj** — DevOps / Site Reliability Engineer
+
+- 2+ years operating production **Kubernetes (EKS)** workloads on **AWS** at Jio Platforms Ltd.
+- Owns reliability, CI/CD automation, IaC, and observability for **10+ microservices**
+- Achieved **99.9% uptime** SLA; reduced MTTR by 25%, MTTD by 30%
+- Built reusable **Terraform** modules used by 3 teams; automated 8 EC2 nodes via **Ansible**
+- CI/CD pipelines via **Jenkins**, **GitHub Actions**, and **GitLab CI** with **Helm** chart releases
+- **AWS Certified Cloud Practitioner** | **Oracle Cloud Infrastructure 2025 DevOps Professional**
+- MBA Candidate — K J Somaiya Institute of Management, Mumbai
+
+---
 
 ## 📂 File Structure
 
@@ -55,72 +71,52 @@ portfolio/
 ├── styles.css              # Complete stylesheet
 ├── script.js               # JavaScript for interactions
 ├── profile.jpg             # Profile image
-├── weather-aggregator.png  # Project image
-├── Reservation.png         # Project image
+├── weather-aggregator.png  # Project screenshot
+├── Reservation.png         # Project screenshot
 └── README.md               # This file
 ```
 
+---
+
 ## 🚀 Getting Started
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/portfolio.git
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Akash-Raj-Official/Portfolio.git
+cd Portfolio
 
-2. Open `index.html` in your browser:
-   ```bash
-   cd portfolio
-   open index.html
-   ```
+# Open directly in browser
+open index.html
 
-   Or use a local server:
-   ```bash
-   python -m http.server 8000
-   ```
-   Then navigate to `http://localhost:8000`
+# Or serve locally
+python -m http.server 8000
+# Navigate to http://localhost:8000
+```
+
+---
 
 ## 📱 Responsive Breakpoints
 
-- **Desktop**: > 992px
-- **Tablet**: 768px - 992px
-- **Mobile**: < 768px
+| Breakpoint | Width |
+|---|---|
+| Desktop | > 992px |
+| Tablet | 768px – 992px |
+| Mobile | < 768px |
 
-## 🎯 Key Features Implementation
-
-### Certifications Grid
-- 2-column layout on desktop (2 certifications per row)
-- Single column on mobile devices
-- Hover effects with elevation and glow
-- Interactive logo icons
-- Professional card design
-
-### Navigation
-- Fixed navbar with backdrop blur
-- Smooth scroll to sections
-- Mobile-responsive menu
-
-### Timeline
-- Visual timeline for experience
-- Dot indicators
-- Hover effects on items
+---
 
 ## 🔗 Links
 
-- **GitHub**: [github.com/akashrajofficial](https://github.com/akashrajofficial)
+- **GitHub**: [github.com/Akash-Raj-Official](https://github.com/Akash-Raj-Official)
 - **LinkedIn**: [linkedin.com/in/akashrajofficial](https://linkedin.com/in/akashrajofficial)
 - **Email**: aakashraj.official@gmail.com
+
+---
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👤 Author
-
-**Akash Raj**
-- DevOps Engineer & Backend Developer
-- 2+ years of experience at Jio Platforms Limited
-- MBA Candidate at K J Somaiya Institute of Management
-
 ---
 
-**Note**: This portfolio is continuously updated with new projects and certifications. Feel free to fork and customize it for your own use!
+*Continuously updated with new projects and certifications.*
