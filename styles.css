@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg-color: #0a0a0a;
     --card-bg: #141414;
     --text-primary: #ffffff;
@@ -1234,3 +1234,151 @@ ul {
         /* Ensure inputs don't overflow */
     }
 }
+
+/* ===== Timeline Bullets ===== */
+.timeline-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeline-bullets li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+}
+
+.timeline-bullets li::before {
+    content: '▸';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.timeline-bullets li strong {
+    color: var(--text-primary);
+}
+
+/* ===== Timeline Tech Icon Strip ===== */
+.timeline-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.timeline-tech img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 0.2s, transform 0.2s;
+    filter: grayscale(20%);
+}
+
+.timeline-tech img:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* ===== Skills Icon Grid ===== */
+.skill-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.skill-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: var(--transition);
+    min-width: 64px;
+}
+
+.skill-icon-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+}
+
+.skill-icon-item img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.skill-icon-item span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.skill-icon-item:hover span {
+    color: var(--accent-color);
+}
+
+/* ===== Project Tags with Logos ===== */
+.project-tags-logo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.project-tags-logo span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+}
+
+.project-tags-logo span img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+.project-card:hover .project-tags-logo span {
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--accent-color);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+/* ===== Cert Logo Image Sizing ===== */
+.cert-logo img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* ===== Footer Social Icons ===== */
+.footer-links a {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
