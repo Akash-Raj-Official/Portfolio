@@ -1,122 +1,65 @@
-# Portfolio Website — Akash Raj
+# Portfolio — Akash Raj
 
-A modern, responsive portfolio website showcasing professional experience, skills, certifications, and projects as a **DevOps / Site Reliability Engineer**.
+Personal portfolio of **Akash Raj**, Site Reliability / DevOps Engineer operating production
+Kubernetes (Amazon EKS) workloads on AWS.
 
-🌐 **Live:** [akash-raj-official.github.io/Portfolio](https://akash-raj-official.github.io/Portfolio) *(or your deployed URL)*
+🌐 **Live:** https://akash-raj-official.github.io/Portfolio/
 
 ---
 
-## 🚀 Features
+## Features
 
-- **Responsive Design** — Fully responsive layout across desktop, tablet, and mobile
-- **Dark Theme** — Sleek dark UI with gold accents, glassmorphism, and micro-animations
-- **Custom Cursor** — Unique cursor design matching the premium theme
-- **Tech Logos** — Devicons SVG logos for tools and technologies throughout
-- **Smooth Interactions** — Hover effects, scroll animations, and dynamic card transitions
+- **Light & dark themes** — follows the visitor's system setting, with a toggle in the nav that is remembered per visitor
+- **Motion design** — loader with counter, line-by-line hero reveal, scroll-linked text highlight, counters, and a pinned horizontal certifications section (GSAP + ScrollTrigger)
+- **Smooth scrolling** with Lenis
+- **Interactive details** — custom cursor, magnetic buttons, floating project previews on hover, scroll-reactive marquee
+- **Responsive** — full-screen menu on mobile; the nav hides on scroll down and returns on scroll up
+- **Accessible motion** — animations are disabled for visitors who prefer reduced motion
 
-### Sections
+## Sections
 
-| Section | Description |
+| Section | Content |
 |---|---|
-| Hero | Introduction, role, key stats (uptime SLA, microservices, certifications) |
-| About | Bio, social links, and education history |
-| Experience | Bullet-pointed achievements with quantified metrics + inline tech icon strip |
-| Projects | Project cards with logo-tagged tech stacks |
-| Skills | Icon + label grid organised by category |
-| Certifications | AWS, Oracle OCI, Google Cloud, NPTEL |
-| Contact | Email, phone, location, and contact form |
+| Hero | Name, role, location, photo, availability |
+| About | Summary and key stats (experience, microservices, 99.9% uptime, certifications) |
+| Experience | Jio Platforms, Persistent Systems, MBA and B.Tech |
+| Projects | [Roadmap.io](https://roadmap-io.vercel.app), [Cloud-Native Weather Aggregator](https://akash-raj-official.github.io/weather-forecasting-aggregator/) |
+| Certifications | OCI 2025 DevOps Professional, AWS Cloud Practitioner Essentials, Google Cloud Multi-cloud Practitioner |
+| Skills | Kubernetes, AWS, CI/CD, IaC, observability, security, scripting |
+| Contact | Email, phone, location, resume, GitHub, LinkedIn |
 
----
+## Tech stack
 
-## 🎨 Design System
+- HTML, CSS (custom properties for theming), vanilla JavaScript
+- [GSAP 3](https://gsap.com) + ScrollTrigger, [Lenis](https://lenis.darkroom.engineering)
+- Fonts: Anton, Inter, Instrument Serif (Google Fonts)
+- Hosted on GitHub Pages
 
-| Token | Value |
-|---|---|
-| Background | `#0a0a0a` |
-| Card Background | `#141414` |
-| Accent (Gold) | `#d4af37` |
-| Body Font | Inter |
-| Display Font | Syne |
-
----
-
-## 🛠️ Tech Stack (Portfolio)
-
-- **HTML5 / CSS3 / Vanilla JS**
-- **Google Fonts** — Inter, Outfit, Syne
-- **Font Awesome 6.4** — Icons
-- **Devicons v2.15** — Technology SVG logos
-
----
-
-## 💼 About Me (Highlighted in Portfolio)
-
-**Akash Raj** — DevOps / Site Reliability Engineer
-
-- 2+ years operating production **Kubernetes (EKS)** workloads on **AWS** at Jio Platforms Ltd.
-- Owns reliability, CI/CD automation, IaC, and observability for **10+ microservices**
-- Achieved **99.9% uptime** SLA; reduced MTTR by 25%, MTTD by 30%
-- Built reusable **Terraform** modules used by 3 teams; automated 8 EC2 nodes via **Ansible**
-- CI/CD pipelines via **Jenkins**, **GitHub Actions**, and **GitLab CI** with **Helm** chart releases
-- **AWS Certified Cloud Practitioner** | **Oracle Cloud Infrastructure 2025 DevOps Professional**
-- MBA Candidate — K J Somaiya Institute of Management, Mumbai
-
----
-
-## 📂 File Structure
+## Project structure
 
 ```
-portfolio/
-├── index.html              # Main HTML file
-├── styles.css              # Complete stylesheet
-├── script.js               # JavaScript for interactions
-├── profile.jpg             # Profile image
-├── weather-aggregator.png  # Project screenshot
-├── Reservation.png         # Project screenshot
-└── README.md               # This file
+index.html    Page content
+style.css     Styles, theme tokens (dark default + light)
+script.js     Animations, cursor, theme toggle, nav behaviour
+assets/       Photo, project previews, certification badges
 ```
 
----
+## Run locally
 
-## 🚀 Getting Started
+No build step. Open `index.html` in a browser, or serve the folder:
 
 ```bash
-# Clone the repository
-git clone https://github.com/Akash-Raj-Official/Portfolio.git
-cd Portfolio
-
-# Open directly in browser
-open index.html
-
-# Or serve locally
-python -m http.server 8000
-# Navigate to http://localhost:8000
+npx serve .
 ```
 
----
+## Customising
 
-## 📱 Responsive Breakpoints
+- **Colours:** edit the tokens at the top of `style.css` (`:root` for dark, `[data-theme="light"]` for light).
+- **Resume:** all resume buttons point to the Google Drive file; replace that link in `index.html`.
+- **Projects:** copy an `<a class="project">` block in `index.html` and set `data-img` to a preview image in `assets/`.
 
-| Breakpoint | Width |
-|---|---|
-| Desktop | > 992px |
-| Tablet | 768px – 992px |
-| Mobile | < 768px |
+## Contact
 
----
-
-## 🔗 Links
-
-- **GitHub**: [github.com/Akash-Raj-Official](https://github.com/Akash-Raj-Official)
-- **LinkedIn**: [linkedin.com/in/akashrajofficial](https://linkedin.com/in/akashrajofficial)
-- **Email**: aakashraj.official@gmail.com
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-*Continuously updated with new projects and certifications.*
+- Email: [aakashraj.official@gmail.com](mailto:aakashraj.official@gmail.com)
+- LinkedIn: [linkedin.com/in/akashrajofficial](https://linkedin.com/in/akashrajofficial)
+- GitHub: [github.com/Akash-Raj-Official](https://github.com/Akash-Raj-Official)

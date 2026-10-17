@@ -1,521 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Raj | DevOps / SRE Engineer</title>
-    <link rel="icon" href="profile.jpg" type="image/jpeg">
-    <meta name="description"
-        content="Portfolio of Akash Raj, a DevOps / Site Reliability Engineer specializing in Kubernetes (EKS), AWS, Terraform, Ansible, CI/CD, and Observability.">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Devicons for tech logos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akash Raj — DevOps / SRE</title>
+  <meta name="description" content="Akash Raj — Site Reliability / DevOps Engineer operating production Kubernetes (Amazon EKS) workloads on AWS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <script>
+    // Apply a saved theme before first paint (falls back to the OS preference)
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">AKASH RAJ</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#contact" class="btn-primary">Contact Me</a>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+  <!-- ===== LOADER ===== -->
+  <div class="loader">
+    <div class="loader-top">
+      <span>Akash Raj</span><span>©2026</span>
+    </div>
+    <div class="loader-words">
+      <h2><span>Build</span></h2>
+      <h2><span>Automate</span></h2>
+      <h2><span>Scale</span></h2>
+    </div>
+    <div class="loader-count"><span id="count">0</span>%</div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor"><span class="cursor-text">View</span></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <a href="#home" class="logo">AR<sup>©</sup></a>
+    <nav class="nav-links">
+      <a href="#about" class="magnetic"><span data-text="About">About</span></a>
+      <a href="#experience" class="magnetic"><span data-text="Experience">Experience</span></a>
+      <a href="#work" class="magnetic"><span data-text="Projects">Projects</span></a>
+      <a href="#skills" class="magnetic"><span data-text="Skills">Skills</span></a>
+      <a href="#contact" class="magnetic"><span data-text="Contact">Contact</span></a>
     </nav>
+    <div class="nav-right">
+      <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" class="nav-resume magnetic" target="_blank" rel="noopener">Resume ↗</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+    <button class="menu-btn" aria-label="Menu"><i></i><i></i></button>
+  </header>
 
-    <header class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <p class="subtitle">Hello, I'm</p>
-                <h1 class="glitch" data-text="Akash Raj">Akash Raj</h1>
-                <h2 class="role">DevOps / Site Reliability Engineer</h2>
-                <p class="description">
-                    Operating production Kubernetes (EKS) workloads on AWS. Owning reliability, CI/CD automation,
-                    infrastructure-as-code, and observability for 10+ microservices. AWS &amp; OCI DevOps Certified.
-                </p>
-                <div class="hero-btns">
-                    <a href="https://drive.google.com/drive/u/0/folders/1KbkoQrrHMP0x4wOyhfCxVA8cpGdjUnGX"
-                        target="_blank" class="btn-primary">Resume</a>
-                    <a href="#experience" class="btn-secondary">View Work</a>
-                </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener" class="mm-resume">Resume ↗</a>
+  </div>
 
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-num">2+</span>
-                        <span class="stat-label">Years Exp</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-num">10+</span>
-                        <span class="stat-label">Microservices</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-num">99.9%</span>
-                        <span class="stat-label">Uptime SLA</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-num">3</span>
-                        <span class="stat-label">Certifications</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="img-wrapper">
-                    <img src="profile.jpg" alt="Akash Raj">
-                    <div class="img-overlay"></div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <span>Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </header>
+  <main id="main">
 
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">My Story</span>
-                <h2 class="section-title">About Me</h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>
-                        DevOps / Site Reliability Engineer with 2+ years operating production Kubernetes (EKS) workloads
-                        on AWS at Jio Platforms Ltd. I own reliability, CI/CD automation, infrastructure-as-code, and
-                        observability for 10+ microservices — with hands-on incident response and on-call experience.
-                    </p>
-                    <p>
-                        I'm passionate about building self-healing infrastructure, eliminating toil through automation,
-                        and driving platform reliability with data-driven SLI/SLO monitoring. <strong>AWS Certified Cloud
-                        Practitioner</strong> and <strong>Oracle Cloud Infrastructure DevOps Certified</strong>.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/akashrajofficial" target="_blank"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Akash-Raj-Official" target="_blank"><i
-                                class="fab fa-github"></i></a>
-                        <a href="mailto:aakashraj.official@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <h3>Education</h3>
-                    <div class="edu-item">
-                        <span class="year">2024 - 2026</span>
-                        <h4>MBA</h4>
-                        <p>K J Somaiya Institute of Management, Mumbai</p>
-                    </div>
-                    <div class="edu-item">
-                        <span class="year">2019 - 2023</span>
-                        <h4>B.Tech (Information Technology)</h4>
-                        <p>Oriental Institute of Science &amp; Technology, Bhopal</p>
-                        <span class="grade">8.89 CGPA</span>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-meta">
+        <p class="reveal-up">Site Reliability /<br/>DevOps Engineer</p>
+        <p class="reveal-up"><span class="status"><i class="dot"></i> Open to opportunities</span><br/>Navi Mumbai, India</p>
+      </div>
+
+      <div class="hero-head">
+        <h1 class="hero-title">
+          <span class="line"><span class="word">AKASH</span></span>
+          <span class="line indent"><span class="word">RAJ<em class="serif">.</em></span></span>
+        </h1>
+        <div class="hero-photo">
+          <img src="assets/profile.jpg" alt="Akash Raj" onerror="this.parentElement.classList.add('no-img')" />
+          <span class="ph-label">Your Photo</span>
         </div>
+      </div>
+
+      <div class="hero-bottom">
+        <p class="hero-intro reveal-up">
+          Operating production Kubernetes (Amazon EKS) workloads on AWS — automating infrastructure,
+          reducing toil and driving <em class="serif">reliability</em> for 10+ microservices.
+        </p>
+        <a href="#about" class="scroll-down magnetic" aria-label="Scroll down">
+          <svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6" /></svg>
+        </a>
+      </div>
     </section>
 
-    <section id="experience" class="section experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Career Path</span>
-                <h2 class="section-title">Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Dec 2023 &ndash; Present</div>
-                    <div class="timeline-content">
-                        <h3>DevOps / Site Reliability Engineer</h3>
-                        <h4>Jio Platforms Ltd. &mdash; Navi Mumbai</h4>
-                        <ul class="timeline-bullets">
-                            <li>Operate <strong>10+ production microservices</strong> on Kubernetes (EKS), owning rolling deployments, capacity planning, and on-call rotation &mdash; achieving <strong>99.9% uptime</strong>.</li>
-                            <li>Reduced <strong>MTTR by 25%</strong> by automating failure recovery and standardising incident-response runbooks.</li>
-                            <li>Cut <strong>MTTD by 30%</strong> by building Prometheus &amp; Grafana dashboards tracking key SLIs (CPU, memory, request latency) with 15+ threshold alerts.</li>
-                            <li>Accelerated environment provisioning by <strong>40%</strong> by designing reusable Terraform modules for AWS (EC2, S3, IAM, Lambda, EKS, RDS), enabling self-service for 3 teams.</li>
-                            <li>Reduced manual deployment effort by <strong>50%</strong> by building end-to-end CI/CD pipelines using Jenkins, GitHub Actions, and GitLab CI with Helm chart-based releases across dev, staging, and production.</li>
-                            <li>Eliminated static credentials from <strong>10+ Kubernetes workloads</strong> via IRSA, and standardised 8 EC2 instances using Ansible playbooks for post-provision node configuration.</li>
-                        </ul>
-                        <div class="timeline-tech">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" title="AWS">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/ansible/ansible-original.svg" alt="Ansible" title="Ansible">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/prometheus/prometheus-original.svg" alt="Prometheus" title="Prometheus">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/grafana/grafana-original.svg" alt="Grafana" title="Grafana">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins" title="Jenkins">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker" title="Docker">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub Actions" title="GitHub Actions">
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Jan 2023 &ndash; Sep 2023</div>
-                    <div class="timeline-content">
-                        <h3>Software Engineer Intern</h3>
-                        <h4>Persistent Systems &mdash; Pune</h4>
-                        <ul class="timeline-bullets">
-                            <li>Built backend modules in <strong>Core Java / Spring Boot</strong> and supported Docker containerisation and Jenkins CI setup within an agile team of 6.</li>
-                            <li>Maintained integration hygiene with Git across feature branches, code reviews, and merge workflows.</li>
-                        </ul>
-                        <div class="timeline-tech">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/java/java-original.svg" alt="Java" title="Java">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/spring/spring-original.svg" alt="Spring Boot" title="Spring Boot">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker" title="Docker">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins" title="Jenkins">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git" title="Git">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ===== MARQUEE ===== -->
+    <section class="marquee">
+      <div class="marquee-track">
+        <h3>DevOps Engineer <i>✦</i> Site Reliability <i>✦</i> Kubernetes <i>✦</i> AWS <i>✦</i> Terraform <i>✦</i> CI/CD <i>✦</i></h3>
+        <h3>DevOps Engineer <i>✦</i> Site Reliability <i>✦</i> Kubernetes <i>✦</i> AWS <i>✦</i> Terraform <i>✦</i> CI/CD <i>✦</i></h3>
+      </div>
     </section>
 
-    <section id="projects" class="section projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">My Work</span>
-                <h2 class="section-title">Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="weather-aggregator.png" alt="Cloud-Native Weather Aggregator">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Akash-Raj-Official/weather-forecasting-aggregator"
-                                target="_blank" class="btn-icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Cloud-Native Weather Aggregator</h3>
-                        <p class="project-desc">
-                            Containerised a Core Java service, deployed to EC2 via a Jenkins pipeline, and load-tested it.
-                            Exposes a Prometheus metrics endpoint visualised on a Grafana dashboard with real-time
-                            weather data aggregation from multiple APIs.
-                        </p>
-                        <div class="project-tags-logo">
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/java/java-original.svg" alt="Java">Java</span>
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker">Docker</span>
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS EC2">AWS EC2</span>
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins">Jenkins</span>
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/prometheus/prometheus-original.svg" alt="Prometheus">Prometheus</span>
-                            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/grafana/grafana-original.svg" alt="Grafana">Grafana</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="Reservation.png" alt="Railway Reservation System">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Akash-Raj-Official/railway_reservation_system" target="_blank"
-                                class="btn-icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-date">Dec 2020 - Jan 2021</span>
-                        <h3>Railway Reservation System</h3>
-                        <p class="project-desc">
-                            A console-based application using C. Implements file handling, pointers, and robust user
-                            input validation.
-                        </p>
-                        <div class="project-tags">
-                            <span>C</span>
-                            <span>File Handling</span>
-                            <span>Pointers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+      <div class="section-tag"><span>(01)</span> About me</div>
+      <p class="about-text split-words">
+        Site Reliability / DevOps Engineer with nearly 3 years of hands-on experience operating production
+        Kubernetes on AWS. I work across the software engineering and operations boundary — CI/CD automation,
+        Terraform-based infrastructure as code and observability stacks that drive measurable reliability gains.
+      </p>
+      <div class="about-grid">
+        <div class="stat"><h4 class="counter" data-target="3" data-suffix="">0</h4><p>Years experience</p></div>
+        <div class="stat"><h4 class="counter" data-target="10" data-suffix="+">0</h4><p>Microservices</p></div>
+        <div class="stat"><h4 class="counter" data-target="99.9" data-decimals="1" data-suffix="%">0</h4><p>Uptime SLA</p></div>
+        <div class="stat"><h4 class="counter" data-target="3">0</h4><p>Certifications</p></div>
+        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" class="btn-pill magnetic" target="_blank" rel="noopener">
+          <span>View Resume</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9" /></svg>
+        </a>
+      </div>
     </section>
 
-    <section id="skills" class="section skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">My Arsenal</span>
-                <h2 class="section-title">Technical Skills</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Container &amp; Orchestration</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-                            <span>Kubernetes</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker">
-                            <span>Docker</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="ECR">
-                            <span>AWS ECR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Cloud &mdash; AWS</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-                            <span>EC2 / EKS</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="S3">
-                            <span>S3 / IAM</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="Lambda">
-                            <span>Lambda</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="RDS">
-                            <span>RDS / VPC</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>IaC &amp; Config Management</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/terraform/terraform-original.svg" alt="Terraform">
-                            <span>Terraform</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/ansible/ansible-original.svg" alt="Ansible">
-                            <span>Ansible</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>CI/CD</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-                            <span>Jenkins</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub Actions">
-                            <span>GitHub Actions</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/gitlab/gitlab-original.svg" alt="GitLab CI">
-                            <span>GitLab CI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Observability</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/prometheus/prometheus-original.svg" alt="Prometheus">
-                            <span>Prometheus</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/grafana/grafana-original.svg" alt="Grafana">
-                            <span>Grafana</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="CloudWatch">
-                            <span>CloudWatch</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Scripting &amp; Core Tools</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/bash/bash-original.svg" alt="Bash">
-                            <span>Bash</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python">
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git">
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/linux/linux-original.svg" alt="Linux">
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-icon-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/java/java-original.svg" alt="Java">
-                            <span>Java</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience" id="experience">
+      <div class="section-tag"><span>(02)</span> Career path</div>
+      <h2 class="big-heading">Experience <em class="serif">&amp; education</em></h2>
+      <div class="exp-list">
+        <div class="exp">
+          <span class="exp-year">Dec 2023 — Present</span>
+          <div class="exp-body">
+            <h3>DevOps Engineer</h3>
+            <span class="exp-co">Jio Platforms Ltd. — Navi Mumbai, Maharashtra</span>
+            <ul>
+              <li>Operate 10+ production microservices on Kubernetes (EKS), handling rolling deployments and capacity planning while maintaining <b>99.9% uptime</b>.</li>
+              <li>Defined SLIs (latency, error rate, saturation) and built Prometheus/Grafana dashboards with 15+ threshold-based alerts, cutting <b>MTTD by 30%</b>.</li>
+              <li>Automated failure-recovery scripts and contributed to incident-response runbooks used by the on-call team, helping reduce <b>MTTR by 25%</b>.</li>
+              <li>Built reusable Terraform modules for EC2, S3, IAM, Lambda, EKS and RDS, cutting AWS environment provisioning time by <b>40%</b> and enabling self-service for 3 teams.</li>
+              <li>Built CI/CD pipelines with Jenkins, GitHub Actions and GitLab CI/CD across dev, staging and production, cutting manual deployment effort by <b>50%</b>.</li>
+              <li>Standardised Kubernetes application releases using Helm charts, improving deployment consistency across environments.</li>
+              <li>Eliminated static AWS credentials from 10+ Kubernetes workloads with IRSA for pod-level access; used Ansible for post-provisioning configuration across 8 EC2 instances.</li>
+            </ul>
+          </div>
         </div>
+        <div class="exp">
+          <span class="exp-year">Jan 2023 — Sep 2023</span>
+          <div class="exp-body">
+            <h3>Software Engineer Intern</h3>
+            <span class="exp-co">Persistent Systems — Pune, Maharashtra</span>
+            <ul>
+              <li>Built backend modules using Core Java and Spring Boot and supported Docker containerisation and Jenkins CI setup within an agile team of 6.</li>
+              <li>Used Git for feature branches, code reviews and merge workflows while supporting application development and integration activities.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-year">2024 — 2026</span>
+          <div class="exp-body">
+            <h3>MBA</h3>
+            <span class="exp-co">K J Somaiya Institute of Management, Mumbai</span>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-year">2019 — 2023</span>
+          <div class="exp-body">
+            <h3>B.Tech in Information Technology</h3>
+            <span class="exp-co">Oriental Institute of Science and Technology, Bhopal — GPA 8.89/10</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="certifications" class="section certifications">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Credentials</span>
-                <h2 class="section-title">Licenses &amp; Certifications</h2>
-            </div>
-            <div class="certifications-grid">
-                <div class="cert-card">
-                    <div class="cert-logo">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-                    </div>
-                    <div class="cert-content">
-                        <h3>AWS Cloud Practitioner Essentials</h3>
-                        <p class="cert-issuer">Amazon Web Services</p>
-                        <div class="cert-skills">
-                            <span>Cloud Foundations</span>
-                            <span>AWS Services</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===== WORK ===== -->
+    <section class="work" id="work">
+      <div class="work-head">
+        <div class="section-tag"><span>(03)</span> My work</div>
+        <h2 class="big-heading"><span>Featured</span> <em class="serif">Projects</em></h2>
+      </div>
 
-                <div class="cert-card">
-                    <div class="cert-logo">
-                        <i class="fas fa-cloud" style="color:#F80000;font-size:2rem;"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Oracle Cloud Infrastructure 2025 &mdash; DevOps Professional</h3>
-                        <p class="cert-issuer">Oracle</p>
-                        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B1CCC3168B107D9E90416B43D39E9E9DBECB9AB5B811E3A00ED1E64928D599BD"
-                            target="_blank" class="cert-link">
-                            <i class="fas fa-external-link-alt"></i> Show credential
-                        </a>
-                    </div>
-                </div>
+      <div class="projects">
+        <a class="project" href="https://roadmap-io.vercel.app" target="_blank" rel="noopener" data-img="assets/roadmap-io.png" data-color="#d4ff3f">
+          <span class="p-num">01</span>
+          <div class="p-main">
+            <h3 class="p-title">Roadmap.io</h3>
+            <p class="p-desc">Full-stack learning roadmap platform where learners follow tracks, complete milestones and track readiness. Role-based admin/learner access with Auth.js and Drizzle ORM on Turso (libSQL). Deployed on Vercel, plus a second AWS EC2 target provisioned with Terraform and Docker Compose, right-sized from t2.medium to t2.micro to cut cost.</p>
+          </div>
+          <span class="p-tags">Next.js · TypeScript · Drizzle ORM · Auth.js · Turso · Vercel · AWS EC2 · Terraform · Docker</span>
+          <span class="p-year">Live ↗</span>
+        </a>
+        <a class="project" href="https://akash-raj-official.github.io/weather-forecasting-aggregator/" target="_blank" rel="noopener" data-img="assets/weather-aggregator.png" data-color="#ff5b2e">
+          <span class="p-num">02</span>
+          <div class="p-main">
+            <h3 class="p-title">Cloud-Native Weather Aggregator</h3>
+            <p class="p-desc">Containerised a Java weather aggregation service with Docker and deployed it on AWS EC2 through a Jenkins CI/CD pipeline for repeatable releases. Exposed application metrics to Prometheus with Grafana dashboards and alerts for operational visibility.</p>
+          </div>
+          <span class="p-tags">Java · Docker · AWS EC2 · Jenkins · Prometheus · Grafana</span>
+          <span class="p-year">Live ↗</span>
+        </a>
+      </div>
 
-                <div class="cert-card">
-                    <div class="cert-logo">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
-                    </div>
-                    <div class="cert-content">
-                        <h3>Google Cloud Skills Boost &mdash; Multi-cloud Practitioner</h3>
-                        <p class="cert-issuer">Google Cloud</p>
-                        <div class="cert-skills">
-                            <span>30 Completed Labs</span>
-                            <span>Multi-cloud</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-logo">
-                        <i class="fab fa-java" style="color:#ED8B00;font-size:2.2rem;"></i>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Programming in Java</h3>
-                        <p class="cert-issuer">NPTEL</p>
-                        <p class="cert-credential">Credential ID: NPTEL22CS47S43240303</p>
-                        <a href="https://nptel.ac.in/noc" target="_blank" class="cert-link">
-                            <i class="fas fa-external-link-alt"></i> Show credential
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- floating preview on hover -->
+      <div class="project-preview"><div class="pp-inner"></div></div>
     </section>
 
-    <section id="contact" class="section contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <span class="section-subtitle">Get In Touch</span>
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p>Open for DevOps, SRE, and cloud infrastructure opportunities. Feel free to reach out!</p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <span>Email</span>
-                                <a href="mailto:aakashraj.official@gmail.com">aakashraj.official@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon-box"><i class="fas fa-phone"></i></div>
-                            <div>
-                                <span>Mobile</span>
-                                <a href="tel:+916202374783">+91 62023 74783</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <span>Location</span>
-                                <p>Navi Mumbai, Maharashtra</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label>What's your name?</label>
-                        <input type="text" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Your fancy email</label>
-                        <input type="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Tell me about your project</label>
-                        <textarea placeholder="Describe your project..." rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-            </div>
+    <!-- ===== HORIZONTAL SHOWCASE: CERTIFICATIONS ===== -->
+    <section class="showcase" id="certifications">
+      <div class="showcase-track">
+        <div class="show-intro">
+          <div class="section-tag"><span>(04)</span> Credentials</div>
+          <h2 class="big-heading">Licenses<em class="serif">&nbsp;&amp; certifications</em></h2>
         </div>
+        <article class="card">
+          <div class="card-badge"><img src="assets/cert-oci-devops.png" alt="Oracle Cloud Infrastructure 2025 Certified DevOps Professional badge" loading="lazy" /></div>
+          <div>
+            <h3>OCI 2025 DevOps Professional</h3>
+            <p>Oracle Cloud Infrastructure</p>
+            <a class="card-link" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B1CCC3168B107D9E90416B43D39E9E9DBECB9AB5B811E3A00ED1E64928D599BD" target="_blank" rel="noopener">Show credential ↗</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-badge logo"><img src="assets/cert-aws.svg" alt="Amazon Web Services logo" loading="lazy" /></div>
+          <div>
+            <h3>AWS Cloud Practitioner Essentials</h3>
+            <p>Amazon Web Services · Cloud Foundations, AWS Services</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-badge logo"><img src="assets/cert-gcp.svg" alt="Google Cloud logo" loading="lazy" /></div>
+          <div>
+            <h3>Multi-cloud Practitioner</h3>
+            <p>Google Cloud Skills Boost · 30 completed labs</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Akash Raj. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="https://linkedin.com/in/akashrajofficial" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Akash-Raj-Official" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+    <!-- ===== SKILLS ===== -->
+    <section class="skills" id="skills">
+      <div class="section-tag"><span>(05)</span> My arsenal</div>
+      <h2 class="big-heading">Technical <em class="serif">skills</em></h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h4>Kubernetes &amp; Cloud-Native</h4>
+          <ul class="skill-list"><li>Kubernetes (Amazon EKS)</li><li>Docker</li><li>Helm</li><li>AWS ECR</li></ul>
         </div>
-    </footer>
+        <div class="skill-group">
+          <h4>Cloud Platforms — AWS</h4>
+          <ul class="skill-list"><li>EC2</li><li>S3</li><li>IAM</li><li>Lambda</li><li>EKS</li><li>ECS</li><li>VPC</li><li>ALB</li><li>RDS</li><li>Route 53</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>CI/CD</h4>
+          <ul class="skill-list"><li>Jenkins</li><li>GitHub Actions</li><li>GitLab CI/CD</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>IaC &amp; Config Management</h4>
+          <ul class="skill-list"><li>Terraform</li><li>Ansible</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>Observability &amp; Reliability</h4>
+          <ul class="skill-list"><li>Prometheus</li><li>Grafana</li><li>CloudWatch</li><li>ELK Stack</li><li>SLI/SLO-driven alerting</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>Security</h4>
+          <ul class="skill-list"><li>IRSA</li><li>IAM Roles/Policies</li><li>SSL/TLS</li><li>VPC Subnetting</li></ul>
+        </div>
+        <div class="skill-group">
+          <h4>Scripting &amp; Systems</h4>
+          <ul class="skill-list"><li>Python</li><li>Bash</li><li>Git</li><li>Linux</li><li>YAML</li></ul>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+      <p class="contact-small reveal-up">Open for DevOps, SRE &amp; cloud infrastructure opportunities</p>
+      <h2 class="contact-title">
+        <span class="line"><span class="word">LET'S</span></span>
+        <span class="line"><span class="word"><em class="serif">connect</em></span></span>
+      </h2>
+      <a href="mailto:aakashraj.official@gmail.com" class="contact-circle magnetic">
+        <span>Get in touch</span>
+      </a>
+      <a href="mailto:aakashraj.official@gmail.com" class="contact-mail">aakashraj.official@gmail.com</a>
+      <div class="contact-info">
+        <a href="tel:+916202374783">+91 62023 74783</a>
+        <span>Navi Mumbai, Maharashtra</span>
+        <a href="https://drive.google.com/uc?export=download&id=1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr" target="_blank" rel="noopener">Download resume ↓</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="socials">
+      <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/akashrajofficial" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:aakashraj.official@gmail.com">Email</a>
+      <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </div>
+    <h2 class="footer-name">AKASH RAJ</h2>
+    <div class="footer-bottom">
+      <span>© 2026 Akash Raj. All rights reserved.</span>
+      <span id="clock">--:--</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
