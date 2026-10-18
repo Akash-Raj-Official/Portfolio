@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-motion="on">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Aggregator | Akash Raj</title>
+  <meta name="description" content="Cloud-Native Weather Aggregator — a Spring Boot service with caching, Prometheus metrics, Docker and GitHub Actions." />
+  <meta name="theme-color" content="#030303" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    try {
+      var t = localStorage.getItem("theme"), m = localStorage.getItem("motion");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      if (m === "off" || (!m && matchMedia("(prefers-reduced-motion: reduce)").matches)) document.documentElement.dataset.motion = "off";
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <a href="../index.html" class="nav-logo">Akash Raj</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="../index.html#work" class="roll" data-scramble><span>Work</span></a>
+      <a href="../index.html#about" class="roll" data-scramble><span>About</span></a>
+      <a href="../index.html#credentials" class="roll" data-scramble><span>Credentials</span></a>
+      <a href="../index.html#impact" class="roll" data-scramble><span>Impact</span></a>
+    </nav>
+    <a href="../index.html#contact" class="nav-cta roll" data-scramble><span>Let’s talk</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+    <button class="nav-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </header>
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#credentials">Credentials</a>
+    <a href="../index.html#impact">Impact</a>
+    <a href="../index.html#contact">Let’s talk</a>
+  </div>
+  <div class="toggles">
+    <button class="toggle" id="themeToggle" type="button" aria-label="Switch colour theme"><i class="toggle-ico theme-ico"></i><span>Theme</span></button>
+    <button class="toggle" id="motionToggle" type="button" aria-pressed="true"><i class="toggle-ico motion-ico"><b></b><b></b><b></b></i><span class="motion-label">Motion on</span></button>
+  </div>
+
+  <main id="main">
+    <section class="p-hero" id="top">
+      <a href="../index.html#work" class="p-back mono muted" data-scramble>← Back to selected work</a>
+      <p class="mono accent" data-scramble>02 / Backend &amp; observability</p>
+      <h1 class="p-title"><span class="blur-in">Weather</span> <em class="blur-in">Aggregator</em></h1>
+      <p class="p-lead" data-reveal>A cloud-native Spring Boot service that aggregates forecasts and caches them. <em>Containerised, tested in CI and published by GitHub Actions.</em></p>
+      <div class="p-meta">
+        <div data-reveal><p class="mono muted">Role</p><p>Backend, CI/CD &amp; deployment</p></div>
+        <div data-reveal><p class="mono muted">Stack</p><p>Java 17 · Spring Boot 3 · WebClient · H2</p></div>
+        <div data-reveal><p class="mono muted">Operations</p><p>Docker · GitHub Actions · Prometheus · GitHub Pages</p></div>
+        <div data-reveal><p class="mono muted">Links</p><p><a href="https://akash-raj-official.github.io/weather-forecasting-aggregator/" target="_blank" rel="noopener">Live site ↗</a><br/><a href="https://github.com/Akash-Raj-Official/weather-forecasting-aggregator" target="_blank" rel="noopener">Source code ↗</a></p></div>
+      </div>
+    </section>
+
+    <div class="p-shot" data-reveal>
+      <a class="frame" href="https://akash-raj-official.github.io/weather-forecasting-aggregator/" target="_blank" rel="noopener">
+        <span class="frame-bar"><i></i><i></i><i></i><span>akash-raj-official.github.io</span><b>↗</b></span>
+        <img src="../assets/weather-aggregator.png" alt="Weather Aggregator dashboard" />
+        <span class="frame-foot mono"><span>Cloud-native service</span><span>Live</span></span>
+        <span class="frame-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+      </a>
+    </div>
+
+    <div class="p-body">
+      <section class="p-block">
+        <div><p class="mono muted">The idea</p><h2 data-lines><span>Many forecasts.</span><em>One clear answer.</em></h2></div>
+        <div class="p-text" data-reveal>
+          <p>Search a city and get current conditions, a 24-hour temperature graph, an hourly strip and a 5-day outlook — in Celsius or Fahrenheit.</p>
+          <p>Behind it is a Spring Boot service that calls the weather provider, transforms the response, and caches it for 30 minutes so repeat searches are instant and API calls stay low.</p>
+        </div>
+      </section>
+
+      <section class="p-block">
+        <div><p class="mono muted">What I built</p><h2 data-lines><span>A small service.</span><em>Run like a big one.</em></h2></div>
+        <ol class="p-list" data-reveal>
+          <li><span class="mono">01</span><p><b>REST API</b> at <code>/api/v1/weather</code> with current conditions, hourly and daily forecasts, and a clean 404 for unknown cities.</p></li>
+          <li><span class="mono">02</span><p><b>Caching</b> — case-insensitive cache lookups in an in-memory store with a 30-minute freshness window.</p></li>
+          <li><span class="mono">03</span><p><b>Observability</b> — Spring Boot Actuator health checks and a Prometheus metrics endpoint, ready for a Grafana dashboard.</p></li>
+          <li><span class="mono">04</span><p><b>Secrets out of code</b> — the API key moved to an environment variable, with tests that mock the external API.</p></li>
+        </ol>
+      </section>
+
+      <section class="p-block">
+        <div><p class="mono muted">Delivery</p><h2 data-lines><span>Commit.</span><em>Test. Publish.</em></h2></div>
+        <div class="p-text" data-reveal>
+          <p>A multi-stage <code>Dockerfile</code> builds a small, non-root runtime image sized for a 1&nbsp;GB instance. GitHub Actions runs the test suite on every push and pull request.</p>
+          <p>The public demo is a static build of the web UI on <b>GitHub Pages</b> that calls the free Open-Meteo API directly — no server to keep running, and no API key in the browser.</p>
+          <div class="p-stack"><span>Java 17</span><span>Spring Boot</span><span>WebFlux</span><span>JPA</span><span>H2</span><span>Actuator</span><span>Prometheus</span><span>Docker</span><span>GitHub Actions</span><span>GitHub Pages</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="p-next">
+      <p class="mono muted">Next project</p>
+      <a href="roadmap-io.html">Roadmap.io <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="../index.html" class="nav-logo">Akash Raj<span class="accent">.</span></a>
+      <nav class="footer-links" aria-label="Social">
+        <a href="https://www.linkedin.com/in/akashrajofficial" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="mailto:aakashraj.official@gmail.com">Email ↗</a>
+        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener">Resume ↗</a>
+      </nav>
+      <a href="#top" class="to-top" aria-label="Back to top"><svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></a>
+    </div>
+    <div class="footer-bottom mono muted">
+      <span>© 2026 Akash Raj</span>
+      <span>Built with intent. Always evolving.</span>
+      <span>Navi Mumbai, India ↗ The world</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

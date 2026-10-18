@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-motion="on">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap.io | Akash Raj</title>
+  <meta name="description" content="Roadmap.io — a full-stack learning roadmap platform on Vercel and Turso, with a second AWS deployment target built with Terraform and Docker." />
+  <meta name="theme-color" content="#030303" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    try {
+      var t = localStorage.getItem("theme"), m = localStorage.getItem("motion");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      if (m === "off" || (!m && matchMedia("(prefers-reduced-motion: reduce)").matches)) document.documentElement.dataset.motion = "off";
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav">
+    <a href="../index.html" class="nav-logo">Akash Raj</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="../index.html#work" class="roll" data-scramble><span>Work</span></a>
+      <a href="../index.html#about" class="roll" data-scramble><span>About</span></a>
+      <a href="../index.html#credentials" class="roll" data-scramble><span>Credentials</span></a>
+      <a href="../index.html#impact" class="roll" data-scramble><span>Impact</span></a>
+    </nav>
+    <a href="../index.html#contact" class="nav-cta roll" data-scramble><span>Let’s talk</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+    <button class="nav-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </header>
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#credentials">Credentials</a>
+    <a href="../index.html#impact">Impact</a>
+    <a href="../index.html#contact">Let’s talk</a>
+  </div>
+  <div class="toggles">
+    <button class="toggle" id="themeToggle" type="button" aria-label="Switch colour theme"><i class="toggle-ico theme-ico"></i><span>Theme</span></button>
+    <button class="toggle" id="motionToggle" type="button" aria-pressed="true"><i class="toggle-ico motion-ico"><b></b><b></b><b></b></i><span class="motion-label">Motion on</span></button>
+  </div>
+
+  <main id="main">
+    <section class="p-hero" id="top">
+      <a href="../index.html#work" class="p-back mono muted" data-scramble>← Back to selected work</a>
+      <p class="mono accent" data-scramble>01 / Full-stack &amp; infrastructure</p>
+      <h1 class="p-title"><span class="blur-in">Roadmap</span><em class="blur-in">.io</em></h1>
+      <p class="p-lead" data-reveal>A learning-roadmap platform where admins build tracks and learners follow them. <em>Shipped on Vercel — and again on AWS, with Terraform and Docker.</em></p>
+      <div class="p-meta">
+        <div data-reveal><p class="mono muted">Role</p><p>Design, development &amp; deployment</p></div>
+        <div data-reveal><p class="mono muted">Stack</p><p>Next.js · TypeScript · Drizzle · Auth.js · Turso</p></div>
+        <div data-reveal><p class="mono muted">Infrastructure</p><p>Vercel · AWS EC2 · Terraform · Docker</p></div>
+        <div data-reveal><p class="mono muted">Links</p><p><a href="https://roadmap-io.vercel.app" target="_blank" rel="noopener">Live site ↗</a><br/><a href="https://github.com/Akash-Raj-Official/Roadmap.io" target="_blank" rel="noopener">Source code ↗</a></p></div>
+      </div>
+    </section>
+
+    <div class="p-shot" data-reveal>
+      <a class="frame" href="https://roadmap-io.vercel.app" target="_blank" rel="noopener">
+        <span class="frame-bar"><i></i><i></i><i></i><span>roadmap-io.vercel.app</span><b>↗</b></span>
+        <img src="../assets/roadmap-io.png" alt="Roadmap.io home page" />
+        <span class="frame-foot mono"><span>Product &amp; platform</span><span>Live</span></span>
+        <span class="frame-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+      </a>
+    </div>
+
+    <div class="p-body">
+      <section class="p-block">
+        <div><p class="mono muted">The idea</p><h2 data-lines><span>From a list of topics.</span><em>To a path people finish.</em></h2></div>
+        <div class="p-text" data-reveal>
+          <p>Learning DevOps or cloud engineering usually means a pile of bookmarks. Roadmap.io turns that into a trail: admins build tracks as <b>Subjects → Milestones → Topics</b>, and learners create an account, follow the trail and check off milestones as they go.</p>
+          <p>I built it with AI-assisted development, then treated it like a production service — security headers, rate limiting, CI on every pull request, and two independent ways to deploy it.</p>
+        </div>
+      </section>
+
+      <section class="p-block">
+        <div><p class="mono muted">What I built</p><h2 data-lines><span>The product.</span><em>And the platform under it.</em></h2></div>
+        <ol class="p-list" data-reveal>
+          <li><span class="mono">01</span><p><b>Role-based access</b> for admin and learner workflows with Auth.js, bcrypt-hashed passwords and JWT sessions.</p></li>
+          <li><span class="mono">02</span><p><b>One schema, two databases</b> — Drizzle ORM on local SQLite for development and Turso (libSQL) in production, switched by environment.</p></li>
+          <li><span class="mono">03</span><p><b>Security by default</b> — CSP and hardening headers, two layers of rate limiting on login and signup, and no account-existence leaks.</p></li>
+          <li><span class="mono">04</span><p><b>CI on every change</b> — GitHub Actions for ESLint and type-checking, plus Vitest unit tests and a production build.</p></li>
+        </ol>
+      </section>
+
+      <section class="p-block">
+        <div><p class="mono muted">Infrastructure</p><h2 data-lines><span>Deployed twice.</span><em>On purpose.</em></h2></div>
+        <div class="p-text" data-reveal>
+          <p><b>Vercel</b> is the always-current production deployment: every push to <code>main</code> deploys automatically, backed by Turso.</p>
+          <p><b>AWS</b> is the second target: a Terraform module provisions an EC2 instance, security group and key pair, and a user-data script installs Docker and runs the app with Docker Compose from a multi-stage <code>Dockerfile</code>.</p>
+          <p>I verified it with live AWS health checks, then <b>right-sized the instance from t2.medium to t2.micro</b> to cut hosting cost — and tore it down with <code>terraform destroy</code> once the exercise was done, so nothing is left running or billing.</p>
+          <div class="p-stack"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Drizzle ORM</span><span>Auth.js</span><span>Turso</span><span>Vercel</span><span>Terraform</span><span>Docker</span><span>AWS EC2</span><span>GitHub Actions</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="p-next">
+      <p class="mono muted">Next project</p>
+      <a href="weather-aggregator.html">Weather Aggregator <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="../index.html" class="nav-logo">Akash Raj<span class="accent">.</span></a>
+      <nav class="footer-links" aria-label="Social">
+        <a href="https://www.linkedin.com/in/akashrajofficial" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="mailto:aakashraj.official@gmail.com">Email ↗</a>
+        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener">Resume ↗</a>
+      </nav>
+      <a href="#top" class="to-top" aria-label="Back to top"><svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></a>
+    </div>
+    <div class="footer-bottom mono muted">
+      <span>© 2026 Akash Raj</span>
+      <span>Built with intent. Always evolving.</span>
+      <span>Navi Mumbai, India ↗ The world</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

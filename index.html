@@ -1,316 +1,586 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="on">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akash Raj — DevOps / SRE</title>
-  <meta name="description" content="Akash Raj — Site Reliability / DevOps Engineer operating production Kubernetes (Amazon EKS) workloads on AWS." />
+  <title>Akash Raj | Site Reliability &amp; DevOps Engineer</title>
+  <meta name="description" content="Akash Raj — Site Reliability / DevOps Engineer keeping production Kubernetes on AWS reliable, automated and observable." />
+  <meta name="theme-color" content="#030303" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>
-    // Apply a saved theme before first paint (falls back to the OS preference)
-    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+    // Restore saved theme / motion before first paint
+    try {
+      var t = localStorage.getItem("theme"), m = localStorage.getItem("motion");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      if (m === "off" || (!m && matchMedia("(prefers-reduced-motion: reduce)").matches)) document.documentElement.dataset.motion = "off";
+    } catch (e) {}
   </script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
 
-  <!-- ===== LOADER ===== -->
-  <div class="loader">
-    <div class="loader-top">
-      <span>Akash Raj</span><span>©2026</span>
-    </div>
-    <div class="loader-words">
-      <h2><span>Build</span></h2>
-      <h2><span>Automate</span></h2>
-      <h2><span>Scale</span></h2>
-    </div>
-    <div class="loader-count"><span id="count">0</span>%</div>
-    <div class="loader-bar"><i></i></div>
-  </div>
-
-  <!-- ===== CURSOR ===== -->
-  <div class="cursor"><span class="cursor-text">View</span></div>
-
-  <!-- ===== NAV ===== -->
+  <!-- ================= NAV ================= -->
   <header class="nav">
-    <a href="#home" class="logo">AR<sup>©</sup></a>
-    <nav class="nav-links">
-      <a href="#about" class="magnetic"><span data-text="About">About</span></a>
-      <a href="#experience" class="magnetic"><span data-text="Experience">Experience</span></a>
-      <a href="#work" class="magnetic"><span data-text="Projects">Projects</span></a>
-      <a href="#skills" class="magnetic"><span data-text="Skills">Skills</span></a>
-      <a href="#contact" class="magnetic"><span data-text="Contact">Contact</span></a>
+    <a href="#top" class="nav-logo">Akash Raj</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work" class="roll" data-scramble><span data-text="Work">Work</span></a>
+      <a href="#about" class="roll" data-scramble><span data-text="About">About</span></a>
+      <a href="#credentials" class="roll" data-scramble><span data-text="Credentials">Credentials</span></a>
+      <a href="#impact" class="roll" data-scramble><span data-text="Impact">Impact</span></a>
     </nav>
-    <div class="nav-right">
-      <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" class="nav-resume magnetic" target="_blank" rel="noopener">Resume ↗</a>
-      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch theme">
-        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
-    </div>
-    <button class="menu-btn" aria-label="Menu"><i></i><i></i></button>
+    <a href="#contact" class="nav-cta roll" data-scramble><span data-text="Let’s talk">Let’s talk</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+    <button class="nav-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </header>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu">
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#work">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener" class="mm-resume">Resume ↗</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#impact">Impact</a>
+    <a href="#contact">Let’s talk</a>
+  </div>
+
+  <div class="toggles">
+    <button class="toggle" id="themeToggle" type="button" aria-label="Switch colour theme"><i class="toggle-ico theme-ico"></i><span>Theme</span></button>
+    <button class="toggle" id="motionToggle" type="button" aria-pressed="true"><i class="toggle-ico motion-ico"><b></b><b></b><b></b></i><span class="motion-label">Motion on</span></button>
   </div>
 
   <main id="main">
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="home">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-meta">
-        <p class="reveal-up">Site Reliability /<br/>DevOps Engineer</p>
-        <p class="reveal-up"><span class="status"><i class="dot"></i> Open to opportunities</span><br/>Navi Mumbai, India</p>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <div class="grid-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+      <p class="hero-corner hero-corner--l mono" data-scramble><i class="dot"></i>DevOps. SRE. Cloud.</p>
+      <p class="hero-corner hero-corner--r mono" data-scramble>Based in India · Keeping systems up</p>
+
+      <div class="hero-side">
+        <p class="mono accent" data-scramble>01 / Presence</p>
+        <span class="plus" aria-hidden="true">+</span>
+        <ul class="mono">
+          <li data-scramble>Reliability</li>
+          <li data-scramble>Automation</li>
+          <li data-scramble>Observability</li>
+        </ul>
       </div>
 
-      <div class="hero-head">
-        <h1 class="hero-title">
-          <span class="line"><span class="word">AKASH</span></span>
-          <span class="line indent"><span class="word">RAJ<em class="serif">.</em></span></span>
-        </h1>
-        <div class="hero-photo">
-          <img src="assets/profile.jpg" alt="Akash Raj" onerror="this.parentElement.classList.add('no-img')" />
-          <span class="ph-label">Your Photo</span>
+      <div class="hero-portrait" aria-hidden="true">
+        <img src="assets/profile.jpg" alt="" class="portrait-img" />
+        <canvas class="portrait-canvas"></canvas>
+      </div>
+
+      <div class="hero-center">
+        <p class="hero-kicker mono" data-scramble>A reliability-first perspective on cloud</p>
+        <h1 class="hero-name"><span class="blur-in">Akash</span> <em class="blur-in">Raj</em></h1>
+        <p class="hero-sub blur-in">I keep production systems reliable,<br/>automate infrastructure, and help teams ship with confidence.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-pill" data-scramble><span>Explore my work</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></a>
+          <a href="#contact" class="btn-line" data-scramble><span>Start a conversation</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
         </div>
       </div>
 
-      <div class="hero-bottom">
-        <p class="hero-intro reveal-up">
-          Operating production Kubernetes (Amazon EKS) workloads on AWS — automating infrastructure,
-          reducing toil and driving <em class="serif">reliability</em> for 10+ microservices.
-        </p>
-        <a href="#about" class="scroll-down magnetic" aria-label="Scroll down">
-          <svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6" /></svg>
-        </a>
+      <div class="hero-foot mono">
+        <a href="#stats" class="scroll-cue" data-scramble>Scroll to discover <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></a>
+        <span data-scramble>Building &amp; operating since 2023</span>
+        <a href="#journey" data-scramble>An ongoing exploration ↗</a>
       </div>
     </section>
 
-    <!-- ===== MARQUEE ===== -->
-    <section class="marquee">
-      <div class="marquee-track">
-        <h3>DevOps Engineer <i>✦</i> Site Reliability <i>✦</i> Kubernetes <i>✦</i> AWS <i>✦</i> Terraform <i>✦</i> CI/CD <i>✦</i></h3>
-        <h3>DevOps Engineer <i>✦</i> Site Reliability <i>✦</i> Kubernetes <i>✦</i> AWS <i>✦</i> Terraform <i>✦</i> CI/CD <i>✦</i></h3>
+    <!-- ================= STATS STRIP ================= -->
+    <section class="stats" id="stats" aria-label="Highlights">
+      <div class="stat" data-reveal>
+        <p class="stat-num"><span data-count="99.9" data-decimals="1">0</span><em>%</em></p>
+        <p class="stat-label">uptime across 10+ production microservices</p>
       </div>
+      <div class="stat" data-reveal>
+        <p class="stat-num"><span data-count="3">0</span><em>yrs</em></p>
+        <p class="stat-label">operating Kubernetes on AWS, nearly</p>
+      </div>
+      <div class="stat" data-reveal>
+        <p class="stat-num"><span data-count="25">0</span><em>%</em></p>
+        <p class="stat-label">faster recovery (MTTR) at Jio Platforms</p>
+      </div>
+      <a href="#impact" class="stat stat-link mono" data-reveal>The work.<br/>The real-world impact.<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section class="about" id="about">
-      <div class="section-tag"><span>(01)</span> About me</div>
-      <p class="about-text split-words">
-        Site Reliability / DevOps Engineer with nearly 3 years of hands-on experience operating production
-        Kubernetes on AWS. I work across the software engineering and operations boundary — CI/CD automation,
-        Terraform-based infrastructure as code and observability stacks that drive measurable reliability gains.
-      </p>
+    <!-- ================= ABOUT ================= -->
+    <section class="section about" id="about">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>01 / The person behind the work</p>
+        <p class="mono muted">A connected perspective</p>
+      </div>
+
       <div class="about-grid">
-        <div class="stat"><h4 class="counter" data-target="3" data-suffix="">0</h4><p>Years experience</p></div>
-        <div class="stat"><h4 class="counter" data-target="10" data-suffix="+">0</h4><p>Microservices</p></div>
-        <div class="stat"><h4 class="counter" data-target="99.9" data-decimals="1" data-suffix="%">0</h4><p>Uptime SLA</p></div>
-        <div class="stat"><h4 class="counter" data-target="3">0</h4><p>Certifications</p></div>
-        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" class="btn-pill magnetic" target="_blank" rel="noopener">
-          <span>View Resume</span>
-          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9" /></svg>
+        <div class="signal" data-signal="about">
+          <div class="signal-top mono muted"><span>Three disciplines. One perspective.</span><span><b class="signal-index">01</b> / 03</span></div>
+          <canvas class="field" data-shapes="wave,flow,rings"></canvas>
+          <p class="signal-caption mono muted">Structure</p>
+          <div class="signal-tabs" role="tablist">
+            <button role="tab" aria-selected="true" data-caption="Structure"><span>Build</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+            <button role="tab" aria-selected="false" data-caption="Flow"><span>Automate</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+            <button role="tab" aria-selected="false" data-caption="Signal"><span>Observe</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+          </div>
+          <div class="signal-panels">
+            <div class="signal-panel is-active">
+              <h3>Give infrastructure structure.</h3>
+              <p>Reusable Terraform modules and Kubernetes platforms that turn one-off servers into repeatable, self-service environments.</p>
+              <a href="#work" class="link-arrow">Explore the projects ↗</a>
+            </div>
+            <div class="signal-panel">
+              <h3>Take the toil away.</h3>
+              <p>CI/CD pipelines with Jenkins, GitHub Actions and GitLab CI, and Helm releases that move code from commit to production without hand-holding.</p>
+              <a href="#expertise" class="link-arrow">See how I work ↗</a>
+            </div>
+            <div class="signal-panel">
+              <h3>Hear the system before it fails.</h3>
+              <p>SLIs, Prometheus and Grafana dashboards and alerts that catch problems early — and runbooks that make recovery routine.</p>
+              <a href="#impact" class="link-arrow">See the impact ↗</a>
+            </div>
+          </div>
+          <p class="signal-hint mono muted">Choose a perspective.</p>
+        </div>
+
+        <div class="about-copy">
+          <h2 class="display" data-lines><span>Infrastructure is</span><span>the starting point.</span><em>Reliability is the point.</em></h2>
+          <p class="lead" data-reveal>I connect software, infrastructure and the people who run it.</p>
+          <p data-reveal>Since December 2023 I’ve operated production Kubernetes (Amazon EKS) on AWS at <b>Jio Platforms</b> — owning <b>deployments, CI/CD, infrastructure-as-code, observability and on-call</b> for 10+ microservices.</p>
+          <a href="#journey" class="link-arrow" data-reveal>Read my story ↗</a>
+          <p class="mono muted tiny" data-reveal>Engineering mind. &nbsp;Operator’s instinct. &nbsp;Builder’s ambition.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORK ================= -->
+    <section class="section work" id="work">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>02 / Selected work</p>
+        <p class="mono muted">Built. Shipped. Kept running.</p>
+      </div>
+
+      <div class="split-intro">
+        <h2 class="display" data-lines><span>Ideas are a start.</span><em>This is the work.</em></h2>
+        <p class="muted" data-reveal>From the platforms people learn on to the pipelines that ship them. A few things I’ve built, deployed and kept alive.</p>
+      </div>
+
+      <article class="feature feature--wide" data-reveal>
+        <a class="frame" href="work/roadmap-io.html">
+          <span class="frame-bar"><i></i><i></i><i></i><span>roadmap-io.vercel.app</span><b>↗</b></span>
+          <img src="assets/roadmap-io.png" alt="Roadmap.io learning roadmap platform" loading="lazy" />
+          <span class="frame-foot mono"><span>Product &amp; platform</span><span>Live on Vercel + AWS</span></span>
+          <span class="frame-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+        </a>
+        <div class="feature-copy">
+          <p class="feature-meta mono"><span class="accent">01</span> Full-stack &amp; infrastructure</p>
+          <h3>Roadmap.io</h3>
+          <p>A learning-roadmap platform: learners follow tracks and check off milestones. Next.js and Turso on Vercel, plus a second AWS target provisioned with Terraform and Docker — right-sized to cut cost.</p>
+          <a href="work/roadmap-io.html" class="link-arrow">Explore the story ↗</a>
+        </div>
+      </article>
+
+      <div class="feature-pair">
+        <article class="feature" data-reveal>
+          <a class="frame" href="work/weather-aggregator.html">
+            <span class="frame-bar"><i></i><i></i><i></i><span>akash-raj-official.github.io</span><b>↗</b></span>
+            <img src="assets/weather-aggregator.png" alt="Cloud-Native Weather Aggregator dashboard" loading="lazy" />
+            <span class="frame-foot mono"><span>Cloud-native service</span><span>Live on GitHub Pages</span></span>
+            <span class="frame-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+          </a>
+          <div class="feature-copy">
+            <p class="feature-meta mono"><span class="accent">02</span> Backend &amp; observability</p>
+            <h3>Cloud-Native Weather Aggregator</h3>
+            <p>A Spring Boot service that aggregates forecasts, caches them, and exposes Prometheus metrics — containerised, tested in CI and published with GitHub Actions.</p>
+            <a href="work/weather-aggregator.html" class="link-arrow">Explore the story ↗</a>
+          </div>
+        </article>
+
+        <article class="feature" data-reveal>
+          <a class="frame frame--art" href="https://github.com/Akash-Raj-Official/AWS-Zero-to-Shipped" target="_blank" rel="noopener">
+            <span class="frame-bar"><i></i><i></i><i></i><span>lambda-url.us-east-1.on.aws</span><b>↗</b></span>
+            <span class="pm-art" aria-hidden="true">
+              <span class="pm-line mono"><b>$</b> incident --summarise</span>
+              <span class="pm-title">PostMortem&nbsp;<em>AI</em></span>
+              <span class="pm-rows mono">
+                <span><i></i>Executive summary</span>
+                <span><i></i>Timeline · root cause</span>
+                <span><i></i>5 whys · action items</span>
+              </span>
+            </span>
+            <span class="frame-foot mono"><span>AWS hackathon build</span><span>Bedrock · Lambda · DynamoDB</span></span>
+            <span class="frame-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+          </a>
+          <div class="feature-copy">
+            <p class="feature-meta mono"><span class="accent">03</span> Serverless &amp; AI</p>
+            <h3>PostMortem AI</h3>
+            <p>Turns 3 a.m. incident chaos into a blameless postmortem in seconds. Built for the AWS Zero to Shipped hackathon on Lambda, Bedrock and DynamoDB, deployed with AWS SAM.</p>
+            <a href="https://github.com/Akash-Raj-Official/AWS-Zero-to-Shipped" class="link-arrow" target="_blank" rel="noopener">Read the code ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="more">
+        <p class="mono muted">More ways I build</p>
+        <a class="more-row" href="https://github.com/Akash-Raj-Official/terraform-for-devops" target="_blank" rel="noopener" data-reveal>
+          <span class="mono muted">04 / Infrastructure as code</span>
+          <span class="more-title">Terraform for DevOps <i class="tag mono">IaC</i></span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg>
+        </a>
+        <a class="more-row" href="https://github.com/Akash-Raj-Official/go-web-app-devops" target="_blank" rel="noopener" data-reveal>
+          <span class="mono muted">05 / Hands-on lab</span>
+          <span class="more-title">Go Web App, end-to-end DevOps <i class="tag mono">Lab</i></span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg>
+        </a>
+        <details class="more-details" data-reveal>
+          <summary><span>Inside these projects</span><i aria-hidden="true">+</i></summary>
+          <p><b>Terraform for DevOps</b> provisions EC2 instances, security groups and key pairs with <code>for_each</code>, user-data bootstrapping and per-environment volumes, with a remote S3 + DynamoDB state backend. <b>Go Web App</b> is a lab following Abhishek Veeramalla’s DevOps course: Docker, GitHub Actions CI, Helm, Amazon EKS with NGINX ingress and GitOps with Argo CD.</p>
+          <a href="https://github.com/Akash-Raj-Official?tab=repositories" class="link-arrow" target="_blank" rel="noopener">All repositories ↗</a>
+        </details>
+      </div>
+
+      <div class="work-links">
+        <p class="mono muted">Explore all work</p>
+        <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener" class="link-arrow">GitHub ↗</a>
+        <a href="https://roadmap-io.vercel.app" target="_blank" rel="noopener" class="link-arrow">Roadmap.io live ↗</a>
+        <a href="https://akash-raj-official.github.io/weather-forecasting-aggregator/" target="_blank" rel="noopener" class="link-arrow">Weather app live ↗</a>
+        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener" class="link-arrow">Resume ↗</a>
+      </div>
+    </section>
+
+    <!-- ================= EXPERTISE ================= -->
+    <section class="section expertise" id="expertise">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>03 / How I think &amp; work</p>
+        <p class="mono muted">Depth meets perspective</p>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-left">
+          <h2 class="display" data-lines><span>How I work.</span><em>From commit to production.</em></h2>
+          <p class="muted" data-reveal>Choose a discipline. Follow the thinking.</p>
+          <div class="path" data-reveal>
+            <p class="mono accent path-label">Platform &amp; automation</p>
+            <ol class="path-steps">
+              <li><span class="mono">01</span><b>Understand the system</b></li>
+              <li><span class="mono">02</span><b>Codify the platform</b></li>
+              <li><span class="mono">03</span><b>Automate the release</b></li>
+            </ol>
+            <a href="#work" class="link-arrow path-link">Explore the platform work ↗</a>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="acc-item is-open" data-label="Platform &amp; automation" data-steps="Understand the system|Codify the platform|Automate the release">
+            <button type="button" aria-expanded="true"><span class="mono muted">01 / Platform &amp; automation</span><b>Build it once. Ship it often.</b><i aria-hidden="true"></i></button>
+            <div class="acc-body"><div>
+              <p>I turn manual infrastructure into code and manual releases into pipelines — so every environment is reproducible and every deploy is boring.</p>
+              <p class="acc-tags">Terraform · Ansible · Jenkins · GitHub Actions · GitLab CI · Helm</p>
+              <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener" class="link-arrow">Background &amp; full capabilities ↗</a>
+            </div></div>
+          </div>
+          <div class="acc-item" data-label="Reliability &amp; observability" data-steps="Define the SLIs|Instrument and alert|Recover and learn">
+            <button type="button" aria-expanded="false"><span class="mono muted">02 / Reliability &amp; observability</span><b>Make failure boring.</b><i aria-hidden="true"></i></button>
+            <div class="acc-body"><div>
+              <p>I define what “healthy” means, measure it, and alert on it — then write the runbooks and automation that bring services back fast.</p>
+              <p class="acc-tags">SLIs / SLOs · Prometheus · Grafana · CloudWatch · ELK · Incident response</p>
+              <a href="#impact" class="link-arrow">See the impact ↗</a>
+            </div></div>
+          </div>
+          <div class="acc-item" data-label="Cloud &amp; security" data-steps="Design for least privilege|Right-size the resources|Keep it cost-aware">
+            <button type="button" aria-expanded="false"><span class="mono muted">03 / Cloud &amp; security</span><b>Secure by default.</b><i aria-hidden="true"></i></button>
+            <div class="acc-body"><div>
+              <p>I build on AWS with least privilege from the start — IRSA instead of static keys, tight IAM, private networking — and keep an eye on the bill.</p>
+              <p class="acc-tags">AWS (EKS · EC2 · S3 · IAM · Lambda · RDS · VPC · Route 53) · IRSA · SSL/TLS</p>
+              <a href="#credentials" class="link-arrow">Credentials ↗</a>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IMPACT ================= -->
+    <section class="section impact" id="impact">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>04 / The work, multiplied</p>
+        <p class="mono muted">Systems. Teams. Reliability.</p>
+      </div>
+
+      <div class="split-intro">
+        <h2 class="display" data-lines><span>Uptime is a number.</span><em>Reliability is personal.</em></h2>
+        <p class="muted" data-reveal>Every pipeline, alert and runbook is a chance to give a team one less 3 a.m. page.</p>
+      </div>
+
+      <div class="impact-hero">
+        <p class="impact-big" data-reveal><span data-count="99.9" data-decimals="1">0</span><em>%</em></p>
+        <div data-reveal>
+          <h3 class="display-sm">Uptime kept.<br/>Not hoped for.</h3>
+          <p class="muted">Across 10+ production microservices on Amazon EKS — rolling deployments, capacity planning and on-call at Jio Platforms.</p>
+          <a href="#expertise" class="link-arrow">How it’s kept ↗</a>
+        </div>
+      </div>
+
+      <div class="impact-row">
+        <div data-reveal>
+          <p class="impact-num"><span data-count="40">0</span><em>%</em></p>
+          <h4>Faster environment provisioning</h4>
+          <p class="muted">Reusable Terraform modules for EC2, S3, IAM, Lambda, EKS and RDS — self-service for 3 teams.</p>
+        </div>
+        <div data-reveal>
+          <p class="impact-num"><span data-count="50">0</span><em>%</em></p>
+          <h4>Less manual deployment effort</h4>
+          <p class="muted">End-to-end CI/CD with Jenkins, GitHub Actions and GitLab CI, released through Helm charts.</p>
+        </div>
+        <div class="thread" data-reveal>
+          <p class="mono muted">The common thread</p>
+          <p class="thread-text">Automate the toil.<br/>Measure what matters.<br/><em>Make failure boring.</em></p>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-copy" data-reveal>
+          <p class="mono muted">Jio Platforms / Part of the platform story</p>
+          <h3 class="display-md">From a pager alert.<br/><em>To a platform teams trust.</em></h3>
+          <p class="muted">At Jio Platforms I run production microservices on EKS end to end — <b>deployments, capacity, CI/CD, infrastructure-as-code and on-call</b>. The job is simple to say: keep it up, make it faster to change, and make incidents rarer and shorter.</p>
+          <a href="https://www.linkedin.com/in/akashrajofficial" class="link-arrow" target="_blank" rel="noopener">My part in the story ↗</a>
+        </div>
+        <ol class="story-timeline">
+          <li data-reveal><span class="mono">2023</span><p><b>Started shipping.</b> Software Engineer Intern at Persistent Systems — Java, Spring Boot, Docker and Jenkins CI.</p></li>
+          <li data-reveal><span class="mono">Dec 2023</span><p><b>Into production.</b> Joined Jio Platforms as a DevOps Engineer on Kubernetes (EKS).</p></li>
+          <li data-reveal><span class="mono">Today</span><p><b>Owning reliability.</b> SLIs, alerting, runbooks, Terraform and pipelines for 10+ microservices.</p></li>
+        </ol>
+      </div>
+
+      <div class="ripples" data-signal="impact">
+        <div class="ripples-copy">
+          <div class="signal-top mono muted"><span>How the impact travels</span><span><b class="signal-index">01</b> / 03</span></div>
+          <div class="signal-tabs" role="tablist">
+            <button role="tab" aria-selected="true" data-caption="Detect"><span>Detect</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+            <button role="tab" aria-selected="false" data-caption="Recover"><span>Recover</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+            <button role="tab" aria-selected="false" data-caption="Secure"><span>Secure</span><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></button>
+          </div>
+          <div class="signal-panels">
+            <div class="signal-panel is-active">
+              <h3><span data-count="30">0</span>% faster detection. One clear signal at a time.</h3>
+              <p>SLI dashboards for CPU, memory and latency with 15+ threshold alerts cut mean time to detect by 30%.</p>
+            </div>
+            <div class="signal-panel">
+              <h3>25% faster recovery. Runbooks that run themselves.</h3>
+              <p>Automated failure recovery and standardised incident-response runbooks cut mean time to recovery by 25%.</p>
+            </div>
+            <div class="signal-panel">
+              <h3>Zero static keys. Least privilege by default.</h3>
+              <p>IRSA removed static AWS credentials from 10+ Kubernetes workloads; Ansible standardised 8 EC2 hosts.</p>
+            </div>
+          </div>
+          <p class="signal-hint mono muted">Choose a perspective.</p>
+        </div>
+        <div class="ripples-art">
+          <canvas class="field" data-shapes="burst,rings,shield"></canvas>
+          <p class="signal-caption mono muted">Detect</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CREDENTIALS (content slot) ================= -->
+    <section class="section creds" id="credentials">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>05 / Proof that travels</p>
+        <p class="mono muted">Certified. Practised. In production.</p>
+      </div>
+
+      <div class="split-intro">
+        <h2 class="display" data-lines><span>A toolbox.</span><em>With receipts.</em></h2>
+        <div data-reveal>
+          <p class="muted">Certifications that back the work, and the tools I use every day to keep production running.</p>
+          <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener" class="link-arrow">My resume ↗</a>
+        </div>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filter credentials">
+        <button class="is-active" data-filter="all">All</button>
+        <button data-filter="cert">Certifications</button>
+        <button data-filter="tools">Toolbox</button>
+        <p class="mono muted filters-count"><span>09</span> Selected</p>
+      </div>
+
+      <div class="cards">
+        <article class="card" data-kind="cert" data-reveal>
+          <a class="card-media card-media--badge" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B1CCC3168B107D9E90416B43D39E9E9DBECB9AB5B811E3A00ED1E64928D599BD" target="_blank" rel="noopener">
+            <img src="assets/cert-oci-devops.png" alt="Oracle Cloud Infrastructure 2025 Certified DevOps Professional badge" loading="lazy" />
+            <span class="card-chip mono">Certification</span>
+          </a>
+          <p class="card-meta mono muted">Oracle / Cloud Infrastructure / 2025</p>
+          <h3>DevOps Professional.</h3>
+          <p class="muted">Oracle Cloud Infrastructure 2025 DevOps Professional</p>
+          <a class="link-arrow" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B1CCC3168B107D9E90416B43D39E9E9DBECB9AB5B811E3A00ED1E64928D599BD" target="_blank" rel="noopener">Show credential ↗</a>
+        </article>
+        <article class="card" data-kind="cert" data-reveal>
+          <div class="card-media card-media--logo"><img src="assets/cert-aws.svg" alt="Amazon Web Services logo" loading="lazy" /><span class="card-chip mono">Certification</span></div>
+          <p class="card-meta mono muted">Amazon Web Services / Cloud foundations</p>
+          <h3>Cloud, from the ground up.</h3>
+          <p class="muted">AWS Cloud Practitioner Essentials</p>
+        </article>
+        <article class="card" data-kind="cert" data-reveal>
+          <div class="card-media card-media--logo"><img src="assets/cert-gcp.svg" alt="Google Cloud logo" loading="lazy" /><span class="card-chip mono">Certification</span></div>
+          <p class="card-meta mono muted">Google Cloud Skills Boost / 30 labs</p>
+          <h3>Multi-cloud, in practice.</h3>
+          <p class="muted">Multi-cloud Practitioner · 30 completed labs</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">Kubernetes</span><span class="tool-list mono">EKS · Docker · Helm · ECR</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Containers / Orchestration</p>
+          <h3>Kubernetes &amp; cloud-native.</h3>
+          <p class="muted">Rolling deployments and Helm releases on Amazon EKS.</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">AWS</span><span class="tool-list mono">EC2 · S3 · IAM · Lambda · RDS · VPC · ALB · Route 53</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Cloud platform</p>
+          <h3>Built on AWS.</h3>
+          <p class="muted">From networking and IAM to serverless and managed databases.</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">CI/CD</span><span class="tool-list mono">Jenkins · GitHub Actions · GitLab CI/CD</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Delivery</p>
+          <h3>Commit to production.</h3>
+          <p class="muted">Build, test and deploy across dev, staging and production.</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">IaC</span><span class="tool-list mono">Terraform · Ansible</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Infrastructure as code</p>
+          <h3>Infrastructure, versioned.</h3>
+          <p class="muted">Reusable modules and playbooks instead of hand-built servers.</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">Observe</span><span class="tool-list mono">Prometheus · Grafana · CloudWatch · ELK</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Observability &amp; reliability</p>
+          <h3>Signals, not noise.</h3>
+          <p class="muted">SLI/SLO-driven alerting and dashboards people actually use.</p>
+        </article>
+        <article class="card" data-kind="tools" data-reveal>
+          <div class="card-media card-media--tools"><span class="tool-word">Secure</span><span class="tool-list mono">IRSA · IAM · SSL/TLS · VPC · Python · Bash · Linux</span><span class="card-chip mono">Toolbox</span></div>
+          <p class="card-meta mono muted">Security &amp; scripting</p>
+          <h3>Least privilege, scripted.</h3>
+          <p class="muted">Pod-level IAM, tight networking, and the glue code that ties it together.</p>
+        </article>
+      </div>
+
+      <div class="channels">
+        <div data-reveal>
+          <p class="mono muted">The conversation continues</p>
+          <h3 class="display-md">Different places.<br/><em>The same curiosity.</em></h3>
+        </div>
+        <a class="channel" href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener" data-reveal>
+          <svg class="channel-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          <p class="mono muted">GitHub / Akash-Raj-Official</p>
+          <h4>Code, <em>in the open.</em></h4>
+          <p class="muted">Infrastructure, pipelines and side projects — the working files behind the work.</p>
+          <span class="link-arrow">Explore my GitHub ↗</span>
+        </a>
+        <a class="channel" href="https://www.linkedin.com/in/akashrajofficial" target="_blank" rel="noopener" data-reveal>
+          <svg class="channel-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          <p class="mono muted">LinkedIn / Akash Raj</p>
+          <h4>The thinking <em>behind the work.</em></h4>
+          <p class="muted">Reliability, platforms and careers in DevOps — and the people moving them forward.</p>
+          <span class="link-arrow">Connect on LinkedIn ↗</span>
         </a>
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
-    <section class="experience" id="experience">
-      <div class="section-tag"><span>(02)</span> Career path</div>
-      <h2 class="big-heading">Experience <em class="serif">&amp; education</em></h2>
-      <div class="exp-list">
-        <div class="exp">
-          <span class="exp-year">Dec 2023 — Present</span>
-          <div class="exp-body">
-            <h3>DevOps Engineer</h3>
-            <span class="exp-co">Jio Platforms Ltd. — Navi Mumbai, Maharashtra</span>
-            <ul>
-              <li>Operate 10+ production microservices on Kubernetes (EKS), handling rolling deployments and capacity planning while maintaining <b>99.9% uptime</b>.</li>
-              <li>Defined SLIs (latency, error rate, saturation) and built Prometheus/Grafana dashboards with 15+ threshold-based alerts, cutting <b>MTTD by 30%</b>.</li>
-              <li>Automated failure-recovery scripts and contributed to incident-response runbooks used by the on-call team, helping reduce <b>MTTR by 25%</b>.</li>
-              <li>Built reusable Terraform modules for EC2, S3, IAM, Lambda, EKS and RDS, cutting AWS environment provisioning time by <b>40%</b> and enabling self-service for 3 teams.</li>
-              <li>Built CI/CD pipelines with Jenkins, GitHub Actions and GitLab CI/CD across dev, staging and production, cutting manual deployment effort by <b>50%</b>.</li>
-              <li>Standardised Kubernetes application releases using Helm charts, improving deployment consistency across environments.</li>
-              <li>Eliminated static AWS credentials from 10+ Kubernetes workloads with IRSA for pod-level access; used Ansible for post-provisioning configuration across 8 EC2 instances.</li>
-            </ul>
-          </div>
+    <!-- ================= OPERATIONS BANNER (speaking slot) ================= -->
+    <section class="section ops" id="toolbox">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>06 / From theory to production</p>
+        <p class="mono muted">From the terminal to the dashboard</p>
+      </div>
+
+      <div class="ops-banner" data-reveal>
+        <canvas class="ops-canvas" aria-hidden="true"></canvas>
+        <div class="ops-overlay">
+          <p class="mono muted">A different kind of reach</p>
+          <h2 class="display"><span>Keep it running.</span><em>Keep it boring.</em></h2>
+          <a href="#contact" class="btn-pill"><span>Work with me</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
         </div>
-        <div class="exp">
-          <span class="exp-year">Jan 2023 — Sep 2023</span>
-          <div class="exp-body">
-            <h3>Software Engineer Intern</h3>
-            <span class="exp-co">Persistent Systems — Pune, Maharashtra</span>
-            <ul>
-              <li>Built backend modules using Core Java and Spring Boot and supported Docker containerisation and Jenkins CI setup within an agile team of 6.</li>
-              <li>Used Git for feature branches, code reviews and merge workflows while supporting application development and integration activities.</li>
-            </ul>
-          </div>
+        <p class="ops-note mono muted">Live signals. Real systems.</p>
+      </div>
+
+      <div class="ops-grid">
+        <div data-reveal>
+          <h3 class="ops-title">Sharing what I run.<br/>Opening what comes next.</h3>
+          <p class="muted">Runbooks, pipelines and infrastructure notes from real deployments — written so the next engineer on call has an easier night.</p>
+          <p class="tags mono muted"><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>CI/CD</span></p>
         </div>
-        <div class="exp">
-          <span class="exp-year">2024 — 2026</span>
-          <div class="exp-body">
-            <h3>MBA</h3>
-            <span class="exp-co">K J Somaiya Institute of Management, Mumbai</span>
-          </div>
-        </div>
-        <div class="exp">
-          <span class="exp-year">2019 — 2023</span>
-          <div class="exp-body">
-            <h3>B.Tech in Information Technology</h3>
-            <span class="exp-co">Oriental Institute of Science and Technology, Bhopal — GPA 8.89/10</span>
-          </div>
+        <div class="ops-list" data-reveal>
+          <a href="https://github.com/Akash-Raj-Official/Roadmap.io/tree/main/infra/aws" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>
+            <span><span class="mono muted">Terraform / Infrastructure notes</span><b>Roadmap.io on AWS EC2</b></span>
+            <i>↗</i>
+          </a>
+          <a href="https://github.com/Akash-Raj-Official/weather-forecasting-aggregator/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>
+            <span><span class="mono muted">GitHub Actions / Pipeline</span><b>Weather Aggregator CI</b></span>
+            <i>↗</i>
+          </a>
+          <p class="muted small">Each repository includes the setup and the reasoning behind it, so you can see how — not just what — I build.</p>
+          <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener" class="link-arrow plain">All my repositories ↗</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== WORK ===== -->
-    <section class="work" id="work">
-      <div class="work-head">
-        <div class="section-tag"><span>(03)</span> My work</div>
-        <h2 class="big-heading"><span>Featured</span> <em class="serif">Projects</em></h2>
+    <!-- ================= JOURNEY ================= -->
+    <section class="section journey" id="journey">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>Interlude / Still becoming</p>
+        <p class="mono muted">A journey in motion</p>
       </div>
-
-      <div class="projects">
-        <a class="project" href="https://roadmap-io.vercel.app" target="_blank" rel="noopener" data-img="assets/roadmap-io.png" data-color="#d4ff3f">
-          <span class="p-num">01</span>
-          <div class="p-main">
-            <h3 class="p-title">Roadmap.io</h3>
-            <p class="p-desc">Full-stack learning roadmap platform where learners follow tracks, complete milestones and track readiness. Role-based admin/learner access with Auth.js and Drizzle ORM on Turso (libSQL). Deployed on Vercel, plus a second AWS EC2 target provisioned with Terraform and Docker Compose, right-sized from t2.medium to t2.micro to cut cost.</p>
-          </div>
-          <span class="p-tags">Next.js · TypeScript · Drizzle ORM · Auth.js · Turso · Vercel · AWS EC2 · Terraform · Docker</span>
-          <span class="p-year">Live ↗</span>
-        </a>
-        <a class="project" href="https://akash-raj-official.github.io/weather-forecasting-aggregator/" target="_blank" rel="noopener" data-img="assets/weather-aggregator.png" data-color="#ff5b2e">
-          <span class="p-num">02</span>
-          <div class="p-main">
-            <h3 class="p-title">Cloud-Native Weather Aggregator</h3>
-            <p class="p-desc">Containerised a Java weather aggregation service with Docker and deployed it on AWS EC2 through a Jenkins CI/CD pipeline for repeatable releases. Exposed application metrics to Prometheus with Grafana dashboards and alerts for operational visibility.</p>
-          </div>
-          <span class="p-tags">Java · Docker · AWS EC2 · Jenkins · Prometheus · Grafana</span>
-          <span class="p-year">Live ↗</span>
-        </a>
-      </div>
-
-      <!-- floating preview on hover -->
-      <div class="project-preview"><div class="pp-inner"></div></div>
-    </section>
-
-    <!-- ===== HORIZONTAL SHOWCASE: CERTIFICATIONS ===== -->
-    <section class="showcase" id="certifications">
-      <div class="showcase-track">
-        <div class="show-intro">
-          <div class="section-tag"><span>(04)</span> Credentials</div>
-          <h2 class="big-heading">Licenses<em class="serif">&nbsp;&amp; certifications</em></h2>
-        </div>
-        <article class="card">
-          <div class="card-badge"><img src="assets/cert-oci-devops.png" alt="Oracle Cloud Infrastructure 2025 Certified DevOps Professional badge" loading="lazy" /></div>
-          <div>
-            <h3>OCI 2025 DevOps Professional</h3>
-            <p>Oracle Cloud Infrastructure</p>
-            <a class="card-link" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B1CCC3168B107D9E90416B43D39E9E9DBECB9AB5B811E3A00ED1E64928D599BD" target="_blank" rel="noopener">Show credential ↗</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-badge logo"><img src="assets/cert-aws.svg" alt="Amazon Web Services logo" loading="lazy" /></div>
-          <div>
-            <h3>AWS Cloud Practitioner Essentials</h3>
-            <p>Amazon Web Services · Cloud Foundations, AWS Services</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-badge logo"><img src="assets/cert-gcp.svg" alt="Google Cloud logo" loading="lazy" /></div>
-          <div>
-            <h3>Multi-cloud Practitioner</h3>
-            <p>Google Cloud Skills Boost · 30 completed labs</p>
-          </div>
-        </article>
+      <div class="journey-grid">
+        <h2 class="display journey-title" data-lines><span>Started with code.</span><em>Kept asking why it broke.</em></h2>
+        <ol class="timeline">
+          <li data-reveal><span class="mono muted">2019</span><h3>Learning by building.</h3><p class="muted">Began a B.Tech in Information Technology at Oriental Institute of Science &amp; Technology, Bhopal.</p></li>
+          <li data-reveal><span class="mono muted">2023</span><h3>A degree. And a first release.</h3><p class="muted">Graduated with an 8.89 CGPA after a Software Engineer internship at Persistent Systems, Pune.</p></li>
+          <li data-reveal><span class="mono muted">Dec 2023</span><h3>Production, for real.</h3><p class="muted">Joined Jio Platforms in Navi Mumbai to run Kubernetes on AWS for 10+ microservices.</p></li>
+          <li data-reveal><span class="mono muted">2024 — 2026</span><h3>The business side, too.</h3><p class="muted">MBA at K J Somaiya Institute of Management, Mumbai — connecting platforms to the people and budgets behind them.</p></li>
+          <li data-reveal><span class="mono muted">Next</span><h3>Bigger systems. Greater reach.</h3><p class="muted">Working with ambitious teams on platforms, reliability and cloud infrastructure that open new possibilities.</p></li>
+        </ol>
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
-    <section class="skills" id="skills">
-      <div class="section-tag"><span>(05)</span> My arsenal</div>
-      <h2 class="big-heading">Technical <em class="serif">skills</em></h2>
-      <div class="skill-groups">
-        <div class="skill-group">
-          <h4>Kubernetes &amp; Cloud-Native</h4>
-          <ul class="skill-list"><li>Kubernetes (Amazon EKS)</li><li>Docker</li><li>Helm</li><li>AWS ECR</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Cloud Platforms — AWS</h4>
-          <ul class="skill-list"><li>EC2</li><li>S3</li><li>IAM</li><li>Lambda</li><li>EKS</li><li>ECS</li><li>VPC</li><li>ALB</li><li>RDS</li><li>Route 53</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>CI/CD</h4>
-          <ul class="skill-list"><li>Jenkins</li><li>GitHub Actions</li><li>GitLab CI/CD</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>IaC &amp; Config Management</h4>
-          <ul class="skill-list"><li>Terraform</li><li>Ansible</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Observability &amp; Reliability</h4>
-          <ul class="skill-list"><li>Prometheus</li><li>Grafana</li><li>CloudWatch</li><li>ELK Stack</li><li>SLI/SLO-driven alerting</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Security</h4>
-          <ul class="skill-list"><li>IRSA</li><li>IAM Roles/Policies</li><li>SSL/TLS</li><li>VPC Subnetting</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Scripting &amp; Systems</h4>
-          <ul class="skill-list"><li>Python</li><li>Bash</li><li>Git</li><li>Linux</li><li>YAML</li></ul>
-        </div>
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact" id="contact">
+      <div class="section-head">
+        <p class="mono"><i class="sq"></i>07 / The next chapter</p>
+        <p class="mono muted">Let’s make it reliable</p>
       </div>
+      <p class="mono contact-kicker"><i class="dot"></i>Open to DevOps, SRE &amp; cloud roles</p>
+      <h2 class="display contact-title" data-lines><span>Something reliable</span><span>starts with <em>a hello.</em></span></h2>
+      <a href="mailto:aakashraj.official@gmail.com" class="contact-cta" data-reveal><span>Let’s connect</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+      <p class="muted contact-note" data-reveal>Platforms, reliability, cloud and DevOps roles.<br/>If our worlds overlap, I’d love to hear from you.</p>
+      <p class="mono muted contact-direct" data-reveal><a href="mailto:aakashraj.official@gmail.com">aakashraj.official@gmail.com</a> · <a href="tel:+916202374783">+91 62023 74783</a></p>
     </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section class="contact" id="contact">
-      <p class="contact-small reveal-up">Open for DevOps, SRE &amp; cloud infrastructure opportunities</p>
-      <h2 class="contact-title">
-        <span class="line"><span class="word">LET'S</span></span>
-        <span class="line"><span class="word"><em class="serif">connect</em></span></span>
-      </h2>
-      <a href="mailto:aakashraj.official@gmail.com" class="contact-circle magnetic">
-        <span>Get in touch</span>
-      </a>
-      <a href="mailto:aakashraj.official@gmail.com" class="contact-mail">aakashraj.official@gmail.com</a>
-      <div class="contact-info">
-        <a href="tel:+916202374783">+91 62023 74783</a>
-        <span>Navi Mumbai, Maharashtra</span>
-        <a href="https://drive.google.com/uc?export=download&id=1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr" target="_blank" rel="noopener">Download resume ↓</a>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
-    <div class="socials">
-      <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/akashrajofficial" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:aakashraj.official@gmail.com">Email</a>
-      <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    <div class="footer-top">
+      <a href="#top" class="nav-logo">Akash Raj<span class="accent">.</span></a>
+      <nav class="footer-links" aria-label="Social">
+        <a href="https://www.linkedin.com/in/akashrajofficial" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Akash-Raj-Official" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="mailto:aakashraj.official@gmail.com">Email ↗</a>
+        <a href="https://drive.google.com/file/d/1uRMB9tUMZSERXtgJX15VV_Y2XhIlplTr/view?usp=sharing" target="_blank" rel="noopener">Resume ↗</a>
+      </nav>
+      <a href="#top" class="to-top" aria-label="Back to top"><svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></a>
     </div>
-    <h2 class="footer-name">AKASH RAJ</h2>
-    <div class="footer-bottom">
-      <span>© 2026 Akash Raj. All rights reserved.</span>
-      <span id="clock">--:--</span>
-      <a href="#home">Back to top ↑</a>
+    <div class="footer-bottom mono muted">
+      <span>© 2026 Akash Raj</span>
+      <span>Built with intent. Always evolving.</span>
+      <span>Navi Mumbai, India ↗ The world</span>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
