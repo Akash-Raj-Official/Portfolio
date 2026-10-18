@@ -31,7 +31,7 @@ Kubernetes (Amazon EKS) workloads on AWS.
 - HTML, CSS (custom properties for theming), vanilla JavaScript, Canvas 2D
 - [Lenis](https://lenis.darkroom.engineering) for smooth scrolling
 - Fonts: Instrument Serif, DM Sans, JetBrains Mono (Google Fonts)
-- Hosted on GitHub Pages (deploys from `main`)
+- Hosted on GitHub Pages (deploys from `main`); ready for Vercel (`vercel.json`)
 
 ## Project structure
 
@@ -50,6 +50,34 @@ No build step:
 ```bash
 npx serve .
 ```
+
+## Deploy
+
+### GitHub Pages (current)
+Every push to `main` is published automatically to https://akash-raj-official.github.io/Portfolio/
+(Settings → Pages → Deploy from a branch → `main` / root).
+
+### Vercel
+The site is static, so there is no build step. `vercel.json` adds clean URLs
+(`/work/roadmap-io`), security headers and image caching.
+
+**Option A — from the terminal**
+
+```bash
+npm install -g vercel     # once
+vercel login              # once, opens the browser
+vercel                    # first run: link/create the project, deploys a preview
+vercel --prod             # deploy to production
+```
+
+When `vercel` asks about settings, accept the defaults: Framework **Other**, no build command,
+output directory `.` (the repo root).
+
+**Option B — from the dashboard (auto-deploy on every push)**
+
+1. Go to https://vercel.com/new and import `Akash-Raj-Official/Portfolio`.
+2. Framework Preset: **Other** · Build Command: *(empty)* · Output Directory: *(empty / `.`)*.
+3. Click **Deploy**. Every push to `main` then redeploys automatically.
 
 ## Customising
 

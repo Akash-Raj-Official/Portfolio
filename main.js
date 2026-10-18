@@ -48,6 +48,7 @@
     store("motion", root.dataset.motion);
     syncMotionLabel();
     if (motionOn()) { startLenis(); } else { stopLenis(); }
+    if (!motionOn()) $$("[data-count]").forEach(countUp);
     redrawAll();
   });
   syncMotionLabel();
@@ -180,6 +181,8 @@
   // Counters not inside a [data-reveal] block (e.g. stats in tab panels)
   const countIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { countUp(e.target); countIO.unobserve(e.target); } }), { threshold: .5 });
   $$("[data-count]").forEach(el => countIO.observe(el));
+  // With motion off, show final numbers immediately
+  if (!motionOn()) $$("[data-count]").forEach(countUp);
 
   /* ---------- Timeline fill ---------- */
   const timeline = $(".timeline");
@@ -220,6 +223,7 @@
       if (!w || !img.naturalWidth) return;
       const step = w < 420 ? 3.6 : 4.2;
       const cols = Math.floor(w / step), rows = Math.floor(h / step);
+      if (cols < 2 || rows < 2) return;
       const off = document.createElement("canvas");
       off.width = cols; off.height = rows;
       const o = off.getContext("2d", { willReadFrequently: true });
