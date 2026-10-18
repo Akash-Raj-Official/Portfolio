@@ -19,6 +19,13 @@
   }
   readColors();
 
+  // Browser UI colour (mobile address bar) follows the theme
+  function syncThemeColor() {
+    const meta = document.querySelector("meta[name=theme-color]");
+    if (meta) meta.content = getComputedStyle(root).getPropertyValue("--bg").trim();
+  }
+  syncThemeColor();
+
   /* ---------- Theme + motion toggles ---------- */
   const themeBtn = $("#themeToggle");
   if (themeBtn) themeBtn.addEventListener("click", () => {
@@ -26,6 +33,7 @@
     root.dataset.theme = current === "light" ? "dark" : "light";
     store("theme", root.dataset.theme);
     readColors();
+    syncThemeColor();
     redrawAll();
   });
 

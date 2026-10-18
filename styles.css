@@ -19,6 +19,16 @@
   --dot-accent: 255, 140, 89;
   --panel: #f1eee8;                /* light chips/tabs on dark */
   --panel-ink: #0b0b0b;
+  /* navbar */
+  --nav-bg: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.01)), rgba(24, 23, 22, .72);
+  --nav-border: rgba(241, 238, 232, .14);
+  --nav-shadow: 0 20px 40px -24px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+  --nav-link: #f1eee8;
+  --cta-bg: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+  --cta-ink: #f1eee8;
+  --cta-border: rgba(241, 238, 232, .28);
+  --cta-hover-bg: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+  --cta-roll: #ff8c59;
 
   --font-display: "Instrument Serif", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
@@ -46,6 +56,15 @@
   --dot-accent: 212, 83, 28;
   --panel: #141311;
   --panel-ink: #f3f0ea;
+  --nav-bg: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.5)), rgba(243, 240, 234, .72);
+  --nav-border: rgba(20, 19, 17, .1);
+  --nav-shadow: 0 18px 40px -22px rgba(70, 45, 20, .28), inset 0 1px 0 rgba(255,255,255,.95);
+  --nav-link: #2a2925;
+  --cta-bg: #141311;
+  --cta-ink: #f3f0ea;
+  --cta-border: #141311;
+  --cta-hover-bg: #d4531c;
+  --cta-roll: #ffffff;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
@@ -64,6 +83,15 @@
     --dot-accent: 212, 83, 28;
     --panel: #141311;
     --panel-ink: #f3f0ea;
+    --nav-bg: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.5)), rgba(243, 240, 234, .72);
+    --nav-border: rgba(20, 19, 17, .1);
+    --nav-shadow: 0 18px 40px -22px rgba(70, 45, 20, .28), inset 0 1px 0 rgba(255,255,255,.95);
+    --nav-link: #2a2925;
+    --cta-bg: #141311;
+    --cta-ink: #f3f0ea;
+    --cta-border: #141311;
+    --cta-hover-bg: #d4531c;
+    --cta-roll: #ffffff;
   }
 }
 
@@ -160,24 +188,25 @@ svg path { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: 
   position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 150;
   width: min(1120px, calc(100% - 32px)); height: 68px; padding: 0 12px 0 28px;
   display: flex; align-items: center; gap: 24px;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.01)), var(--glass);
-  border: 1px solid var(--line); border-radius: 20px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border); border-radius: 20px;
   -webkit-backdrop-filter: blur(18px) saturate(1.2); backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow: 0 20px 40px -24px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
-  transition: transform .6s var(--ease), background .5s;
+  box-shadow: var(--nav-shadow);
+  transition: transform .6s var(--ease), background .5s, border-color .5s, box-shadow .5s;
 }
 .nav.is-hidden { transform: translate(-50%, -140%); }
 .nav-logo { font-family: var(--font-display); font-size: 26px; letter-spacing: -.02em; line-height: 1; margin-right: auto; }
 .nav-links { display: flex; gap: 34px; font-size: 13px; font-weight: 500; }
-.nav-links a { color: var(--ink); opacity: .85; }
+.nav-links a { color: var(--nav-link); opacity: .9; transition: color .5s; }
 .nav-cta {
   height: 44px; padding: 0 16px 0 18px; gap: 34px; border-radius: 12px; font-size: 13px; font-weight: 500;
-  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border: 1px solid var(--line-strong);
-  transition: border-color .4s;
+  background: var(--cta-bg); color: var(--cta-ink); border: 1px solid var(--cta-border);
+  transition: border-color .4s, background .4s, color .4s;
 }
-.nav-cta:hover { border-color: var(--accent); }
+.nav-cta:hover { border-color: var(--accent); background: var(--cta-hover-bg); }
+.nav-cta .roll-b { color: var(--cta-roll); }
 .nav-cta svg { width: 14px; }
-.nav-menu { display: none; font-size: 13px; font-weight: 500; height: 40px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; }
+.nav-menu { display: none; font-size: 13px; font-weight: 500; height: 40px; padding: 0 16px; border: 1px solid var(--cta-border); border-radius: 10px; background: var(--cta-bg); color: var(--cta-ink); transition: background .4s, color .4s; }
 
 .menu {
   position: fixed; inset: 0; z-index: 140; background: var(--bg); display: flex; flex-direction: column;
